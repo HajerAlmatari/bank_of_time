@@ -1,5 +1,6 @@
 
 import 'package:bank_off_time/features/auth/presentation/views/widgets/login_form.dart';
+import 'package:bank_off_time/features/splash/presentaion/view/widgets/app_logo.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {
@@ -16,23 +17,14 @@ class LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: InkWell(
-        focusColor: Colors.transparent,
-        highlightColor: Colors.transparent,
-        hoverColor: Colors.transparent,
-        splashColor: Colors.transparent,
-        onTap: () {
-          FocusScope.of(context).requestFocus(FocusNode());
-        },
         child: Container(
           color: const Color(0xfffdfdfd),
           child: Padding(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               left: 20,
               right: 20,
-              top: AppBar().preferredSize.height,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: ListView(
               children: [
                 // const Icon(Icons.arrow_back),
                 const SizedBox(
@@ -55,6 +47,14 @@ class LoginViewState extends State<LoginView> {
                         fontSize: 16,
                         color: const Color(0xffA2A0A8),
                       ),
+                ),
+
+                Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 20,
+                  ),
+                  child: const AppLogo(),
                 ),
                 const LoginForm(),
               ],

@@ -27,25 +27,29 @@ class AppLogo extends StatelessWidget {
             ),
             Container(
               decoration: BoxDecoration(
-                  border: Border(
-                      top: BorderSide(
-                          color: Theme.of(context).colorScheme.primary,
-                          width: 4,
-                      ),
+                border: Border(
+                  top: BorderSide(
+                    color: Theme.of(context).colorScheme.primary,
+                    width: 4,
                   ),
+                ),
               ),
               child: Text(
                 "BOT",
                 style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontFamily: "AlfaSlabOne-Regular",
-                    fontSize: 30,
+                  color: Theme.of(context).colorScheme.primary,
+                  fontFamily: "AlfaSlabOne-Regular",
+                  fontSize: 30,
                 ),
               ),
             ),
             const Text(
               "Bank of Time",
-              style: TextStyle(color: Color(0xff888a8a), fontSize: 10, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: Color(0xff03118c),
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+              ),
             )
           ],
         ),
