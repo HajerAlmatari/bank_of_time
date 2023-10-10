@@ -28,7 +28,7 @@ class AccountInfoContainer extends StatelessWidget {
             children: [
               DefaultTextStyle(
                 style: TextStyle(color: Colors.black,fontSize: 17),
-                child: Text("Mohammed Al-Haddad",),
+                child: Text("Sara", textAlign: TextAlign.center,),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal : 20.0,  vertical : 10.0),

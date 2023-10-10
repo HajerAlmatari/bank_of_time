@@ -24,8 +24,8 @@ class WelcomeContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(100),
           child: Image.asset(
             "assets/images/avatar1.png",
-            height: 70,
-            width: 70,
+            height: 50,
+            width: 50,
           ),
         ),
         const SizedBox(
@@ -35,7 +35,7 @@ class WelcomeContainer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "hello Mohammed!",
+              "hello Sara!",
               style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
             ),
             Text(

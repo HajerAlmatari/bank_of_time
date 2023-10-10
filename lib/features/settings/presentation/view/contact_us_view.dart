@@ -34,8 +34,8 @@ class ContactUsView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("TALK TO US", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
-                        Text("(04) 298 385 2092", style: TextStyle(fontSize: 15),),
-                        Text("+76 209 1092 4092", style: TextStyle(fontSize: 15),),
+                        Text("+966 55 444 3333", style: TextStyle(fontSize: 15),),
+                        Text("+966 55 444 3333", style: TextStyle(fontSize: 15),),
                         Text("info@bot.com", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
                       ],
                     )

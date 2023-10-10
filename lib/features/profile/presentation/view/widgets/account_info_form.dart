@@ -16,12 +16,12 @@ class AccountInfoForm extends StatelessWidget {
         children: [
           const AccountInfoTextField(
             hintText: "Name",
-            text: "Mohammed Al-Haddad",
+            text: "Sara",
           ),
           const LanguageDropDown(),
           const AccountInfoTextField(
             hintText: "Email",
-            text: "Mohammed@gmail.com",
+            text: "sara@gmail.com",
           ),
           const AccountInfoTextField(
             hintText: "Country",
