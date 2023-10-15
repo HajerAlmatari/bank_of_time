@@ -18,7 +18,7 @@ class LoginViewState extends State<LoginView> {
     return Scaffold(
       body: InkWell(
         child: Container(
-          color: const Color(0xfffdfdfd),
+          color: Theme.of(context).scaffoldBackgroundColor,
           child: Padding(
             padding: const EdgeInsets.only(
               left: 20,
@@ -36,7 +36,7 @@ class LoginViewState extends State<LoginView> {
                         fontWeight: FontWeight.w700,
                         fontSize: 24,
                       ),
-                ),
+                ), //Hi Welcome Back!
                 const SizedBox(
                   height: 4,
                 ),
@@ -47,7 +47,7 @@ class LoginViewState extends State<LoginView> {
                         fontSize: 16,
                         color: const Color(0xffA2A0A8),
                       ),
-                ),
+                ), //Sign in to your account
 
                 Container(
                   alignment: Alignment.center,

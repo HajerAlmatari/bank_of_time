@@ -7,12 +7,15 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        WelcomeContainer(showBack: showBack,),
-        Icon(Icons.menu, color: Theme.of(context).colorScheme.primary, size: 40,)
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          WelcomeContainer(showBack: showBack,),
+          Icon(Icons.menu, color: Theme.of(context).colorScheme.primary, size: 40,)
+        ],
+      ),
     );
   }
 }

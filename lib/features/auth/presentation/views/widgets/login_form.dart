@@ -60,10 +60,9 @@ class _LoginFormState extends State<LoginForm> {
               ),
             ),
             hintText: "User Name",
-            // inputType: TextIn/putType.emailAddress,
             textEditingController: textEditingControllers.userNameController,
             capitalization: TextCapitalization.none,
-          ),
+          ), //User Name
           const SizedBox(height: 24),
           CustomTextFormField(
             focusNode: focusNodes.passwordFocusNode,
@@ -100,7 +99,7 @@ class _LoginFormState extends State<LoginForm> {
               FilteringTextInputFormatter.singleLineFormatter,
             ],
             inputType: TextInputType.visiblePassword,
-          ),
+          ), //Password
           const SizedBox(height: 16),
           InkWell(
             focusColor: Colors.transparent,
@@ -146,11 +145,6 @@ class _LoginFormState extends State<LoginForm> {
             hoverColor: Colors.transparent,
             splashColor: Colors.transparent,
             onTap: () {
-              // Get.to(
-              //   const SignUpScreen(),
-              //   transition: Transition.rightToLeft,
-              //   duration: const Duration(milliseconds: 500),
-              // );
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => const RegisterView())
               );

@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
           primary: const Color.fromRGBO(70, 150, 115, 1),
           seedColor: const Color.fromRGBO(70, 150, 115, 1),
         ),
+        scaffoldBackgroundColor: const Color.fromRGBO(255, 234, 244, 1.0),
         useMaterial3: true,
       ),
       home: const SplashView(),

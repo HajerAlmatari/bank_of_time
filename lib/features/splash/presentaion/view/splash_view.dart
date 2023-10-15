@@ -68,7 +68,6 @@ class SplashViewState extends State<SplashView> with TickerProviderStateMixin {
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Stack(
         children: [
           Column(
@@ -76,7 +75,8 @@ class SplashViewState extends State<SplashView> with TickerProviderStateMixin {
               AnimatedContainer(
                   duration: const Duration(milliseconds: 2000),
                   curve: Curves.fastLinearToSlowEaseIn,
-                  height: height / _fontSize),
+                  height: height / _fontSize,
+              ),
               AnimatedOpacity(
                 duration: const Duration(milliseconds: 1000),
                 opacity: _textOpacity,

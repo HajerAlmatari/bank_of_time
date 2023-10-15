@@ -9,24 +9,19 @@ final indexBottomNavbarProvider = StateProvider<int>((ref) {
   return 0;
 });
 
-
 class MainView extends ConsumerWidget {
-
   static final List<Widget> _widgetOptions = <Widget>[
     const ProfileView(),
     const HomeView(),
     const SettingsView(),
   ];
-
   MainView({super.key});
-
 
   final List<IconData> listOfIcons = [
     Icons.person,
     Icons.home_filled,
     Icons.settings,
   ];
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     double screenWidth = MediaQuery.of(context).size.width;

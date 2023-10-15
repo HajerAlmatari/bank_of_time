@@ -17,7 +17,7 @@ class RegisterView extends StatelessWidget {
           FocusScope.of(context).requestFocus(FocusNode());
         },
         child: Container(
-          color: const Color(0xfffdfdfd),
+          color: Theme.of(context).scaffoldBackgroundColor,
           child: Padding(
             padding: EdgeInsets.only(
               left: 20,

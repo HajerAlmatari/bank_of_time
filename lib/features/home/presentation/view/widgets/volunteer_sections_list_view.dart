@@ -23,11 +23,6 @@ class VolunteerSections extends StatelessWidget {
               title: titles[index],
               imageName: images[index],
             );
-
-            //   Container(
-            //   alignment: Alignment.center,
-            //   color: Colors.orange[100 * (index % 9 + 1)],
-            // );
           },
         ),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
