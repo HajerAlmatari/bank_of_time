@@ -4,6 +4,7 @@ import 'package:bank_off_time/features/auth/presentation/views/register_view.dar
 import 'package:bank_off_time/features/main/presentation/view/main_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -134,9 +135,9 @@ class _LoginFormState extends State<LoginForm> {
                 Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => MainView()), (route) => false);
               }
             },
-            buttonChild: const Text(
-              "Login",
-              style: TextStyle(color: Colors.white),
+            buttonChild:  Text(
+              AppLocalizations.of(context)!.login,
+              style: const TextStyle(color: Colors.white),
             ),
           ),
           InkWell(

@@ -1,0 +1,19 @@
+{
+    "language" : "Language",
+    "@language" : {
+        "description" : "Language"
+    },
+    "arabic" : "Arabic",
+    "@arabic" : {
+        "description" : "Arabic"
+    },
+    "english" : "English",
+    "@english" : {
+        "description" : "English"
+    },
+    "login" : "Login",
+    "@login" : {
+        "description" : "Login"
+    }
+
+}

@@ -2,6 +2,7 @@ import 'package:bank_off_time/core/functions/slide_navigation.dart';
 import 'package:bank_off_time/core/widgets/custom_app_bar.dart';
 import 'package:bank_off_time/core/widgets/custom_button_with_icon.dart';
 import 'package:bank_off_time/features/settings/presentation/view/contact_us_view.dart';
+import 'package:bank_off_time/features/settings/presentation/view/language_modal.dart';
 import 'package:flutter/material.dart';
 
 class SettingsView extends StatelessWidget {
@@ -22,44 +23,48 @@ class SettingsView extends StatelessWidget {
               ),
               CustomButtonWithIcon(
                 title: "Privacy and Policy",
-                onTap: (){
-
-                },
+                onTap: () {},
               ),
               const SizedBox(
                 height: 10,
               ),
               CustomButtonWithIcon(
                 title: "Notification",
-                onTap: (){
-
-                },
+                onTap: () {},
               ),
               const SizedBox(
                 height: 10,
               ),
               CustomButtonWithIcon(
                 title: "Accessibility",
-                onTap: (){
-
-                },
+                onTap: () {},
               ),
               const SizedBox(
                 height: 10,
               ),
               CustomButtonWithIcon(
                 title: "Display",
-                onTap: (){
-
-                },
+                onTap: () {},
               ),
               const SizedBox(
                 height: 10,
               ),
               CustomButtonWithIcon(
                 title: "Language",
-                onTap: (){
-
+                onTap: () {
+                  // slideNavigator(context, const LanguageView());
+                  showModalBottomSheet(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(50.0),
+                          topLeft: Radius.circular(50.0),
+                        ),
+                      ),
+                      context: context,
+                      builder: (context) {
+                        return const LanguageModal();
+                      },
+                  );
                 },
               ),
               const SizedBox(
@@ -67,7 +72,7 @@ class SettingsView extends StatelessWidget {
               ),
               CustomButtonWithIcon(
                 title: "Contact Us",
-                onTap: (){
+                onTap: () {
                   slideNavigator(context, const ContactUsView());
                 },
               ),
