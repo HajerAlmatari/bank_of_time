@@ -1,11 +1,13 @@
+import 'package:bank_off_time/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 final selectedLanguageProvider = StateProvider<String>((ref) {
-  return "English";
+  return AppLocalizations.of(Constants.navigatorKey.currentState!.context)!.english;
 });
 
-List<String> language = ["Arabic", "English"];
+List<String> language = [AppLocalizations.of(Constants.navigatorKey.currentState!.context)!.english, AppLocalizations.of(Constants.navigatorKey.currentState!.context)!.arabic];
 
 class LanguageDropDown extends ConsumerWidget {
   const LanguageDropDown({Key? key}) : super(key: key);
@@ -26,7 +28,7 @@ class LanguageDropDown extends ConsumerWidget {
               width: 1,
             ),
           ),
-          labelText: "Language",
+          labelText: AppLocalizations.of(context)!.language,
         ),
         items: language.map((String val) {
           return DropdownMenuItem(

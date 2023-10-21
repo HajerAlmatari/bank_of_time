@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WelcomeContainer extends StatelessWidget {
   final bool showBack;
@@ -31,21 +32,21 @@ class WelcomeContainer extends StatelessWidget {
         const SizedBox(
           width: 10,
         ),
-        const Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "hello Sara!",
+              AppLocalizations.of(context)!.helloSara,
               style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
             ),
             Text(
-              "you are currently offline",
+              AppLocalizations.of(context)!.youAreOffline,
               style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
             ),
             Row(
               children: [
                 Text(
-                  "your time balance is",
+            AppLocalizations.of(context)!.yourTimeBalanceIs,
                   style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
                 ),
                 Text(

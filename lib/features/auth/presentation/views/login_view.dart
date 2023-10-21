@@ -2,6 +2,7 @@
 import 'package:bank_off_time/features/auth/presentation/views/widgets/login_form.dart';
 import 'package:bank_off_time/features/splash/presentaion/view/widgets/app_logo.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class LoginViewState extends State<LoginView> {
                   height: 38,
                 ),
                 Text(
-                  "Hi Welcome Back!",
+                  AppLocalizations.of(context)!.hiWelcomeBack,
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         fontWeight: FontWeight.w700,
                         fontSize: 24,
@@ -41,7 +42,7 @@ class LoginViewState extends State<LoginView> {
                   height: 4,
                 ),
                 Text(
-                  "Sign in to your account",
+                  AppLocalizations.of(context)!.signInToYourAccount,
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         fontWeight: FontWeight.w500,
                         fontSize: 16,

@@ -1,3 +1,4 @@
+import 'package:bank_off_time/core/utils/constants.dart';
 import 'package:bank_off_time/features/splash/presentaion/view/splash_view.dart';
 import 'package:bank_off_time/main_provider.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +40,7 @@ class MyApp extends ConsumerWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: notifier.locale,
+      navigatorKey: Constants.navigatorKey,
       home: const SplashView(),
     );
   }

@@ -60,7 +60,7 @@ class _LoginFormState extends State<LoginForm> {
                     : const Color(0xffA2A0A8),
               ),
             ),
-            hintText: "User Name",
+            hintText: AppLocalizations.of(context)!.userName,
             textEditingController: textEditingControllers.userNameController,
             capitalization: TextCapitalization.none,
           ), //User Name
@@ -91,7 +91,7 @@ class _LoginFormState extends State<LoginForm> {
                       ? Theme.of(context).colorScheme.primary
                       : const Color(0xffA2A0A8),
                 )),
-            hintText: "Password",
+            hintText: AppLocalizations.of(context)!.password,
             obscure: visible == true ? false : true,
             textEditingController:
             textEditingControllers.passwordController,
@@ -113,7 +113,7 @@ class _LoginFormState extends State<LoginForm> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  "Forgot your password?",
+                  AppLocalizations.of(context)!.forgotYourPassword,
                   style: Theme.of(context)
                       .textTheme
                       .bodyMedium!
@@ -155,7 +155,7 @@ class _LoginFormState extends State<LoginForm> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Don’t have account?",
+                  Text(AppLocalizations.of(context)!.doNotHaveAccount,
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium!
@@ -164,7 +164,7 @@ class _LoginFormState extends State<LoginForm> {
                           fontSize: 16,
                           color: const Color(0xff9CA3AF))),
                   Text(
-                    " Sign Up",
+                    AppLocalizations.of(context)!.signUp,
                     style: Theme.of(context)
                         .textTheme
                         .bodyMedium!

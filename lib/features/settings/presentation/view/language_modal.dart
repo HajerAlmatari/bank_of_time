@@ -54,7 +54,8 @@ class LanguageModal extends ConsumerWidget {
               onTap: () {
                 ref.read(mainProvider.notifier).setLocale();
                 Navigator.of(context).pop();
-              }),
+              },
+          ),
         ],
       ),
       // color: Colors.red,

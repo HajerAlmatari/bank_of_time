@@ -3,6 +3,7 @@ import 'package:bank_off_time/core/widgets/custom_textformfield.dart';
 import 'package:bank_off_time/features/main/presentation/view/main_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({Key? key}) : super(key: key);
@@ -60,7 +61,7 @@ class _RegisterFormState extends State<RegisterForm> {
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  hintText: "Email",
+                  hintText: AppLocalizations.of(context)!.email,
                   // inputType: TextIn/putType.emailAddress,
                   textEditingController: textEditingControllers.emailController,
                   capitalization: TextCapitalization.none,
@@ -75,7 +76,7 @@ class _RegisterFormState extends State<RegisterForm> {
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  hintText: "Full Name",
+                  hintText: AppLocalizations.of(context)!.fullName,
                   // inputType: TextIn/putType.emailAddress,
                   textEditingController:
                       textEditingControllers.fullNameController,
@@ -90,7 +91,7 @@ class _RegisterFormState extends State<RegisterForm> {
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  hintText: "User Name",
+                  hintText: AppLocalizations.of(context)!.userName,
                   // inputType: TextIn/putType.emailAddress,
                   textEditingController:
                       textEditingControllers.userNameController,
@@ -119,7 +120,7 @@ class _RegisterFormState extends State<RegisterForm> {
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  hintText: "Password",
+                  hintText: AppLocalizations.of(context)!.password,
                   obscure: visible == true ? false : true,
                   textEditingController:
                       textEditingControllers.passwordController,
@@ -152,7 +153,7 @@ class _RegisterFormState extends State<RegisterForm> {
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  hintText: "Confirm Password",
+                  hintText: AppLocalizations.of(context)!.confirmPassword,
                   obscure: visible == true ? false : true,
                   textEditingController:
                       textEditingControllers.confirmPasswordController,
@@ -164,9 +165,9 @@ class _RegisterFormState extends State<RegisterForm> {
                 ),
                 const SizedBox(height: 32),
                 CustomButton(
-                  buttonChild: const Text(
-                    "Register",
-                    style: TextStyle(color: Colors.white),
+                  buttonChild: Text(
+                    AppLocalizations.of(context)!.register,
+                    style: const TextStyle(color: Colors.white),
                   ),
                   onTap: () {
                     if(_formKey.currentState!.validate()){
@@ -187,7 +188,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Already have an account!",
+                        Text(AppLocalizations.of(context)!.alreadyHaveAnAccount,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!
@@ -196,7 +197,7 @@ class _RegisterFormState extends State<RegisterForm> {
                                     fontSize: 16,
                                     color: const Color(0xff9CA3AF))),
                         Text(
-                          " Back to Login",
+                          AppLocalizations.of(context)!.backToLogin,
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium!
