@@ -17,14 +17,22 @@ class MainProvider extends ChangeNotifier{
   void setLocaleFromSharedPref()async{
     final String localeString = await SharedPref.getLocale();
     locale = Locale(localeString);
+    changeSelectedOption ( locale == Locale("ar") ? 1 : 2);
     notifyListeners();
   }
 
-  void setLocale(String value)async{
+  void setLocale()async{
+    String value = selectedOption == 1 ? "ar" : "en";
     locale = Locale(value);
     await SharedPref.setLocale(value);
     notifyListeners();
   }
 
+  int selectedOption = 1;
+
+  void changeSelectedOption(int value){
+    selectedOption = value;
+    notifyListeners();
+  }
 
 }

@@ -14,6 +14,10 @@
     "login" : "Login",
     "@login" : {
         "description" : "Login"
+    },
+    "save" : "Save",
+    "@save" : {
+        "description" : "Save"
     }
 
 }
