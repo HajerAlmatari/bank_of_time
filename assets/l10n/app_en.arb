@@ -7,121 +7,13 @@
     "@english" : {
         "description" : "English"
     },
-    "save" : "Save",
-    "@save" : {
-        "description" : "Save"
-    },
-    "login" : "Login",
-    "@login" : {
-        "description" : "Login"
-    },
-    "hiWelcomeBack" : "Hi Welcome Back!",
-    "@hiWelcomeBack" : {
-        "description" : "Hi Welcome Back!"
-    },
-    "signInToYourAccount" : "Sign in to your account",
-    "@signInToYourAccount" : {
-        "description" : "Sign in to your account"
-    },
-    "userName" : "User Name",
-    "@userName" : {
-        "description" : "User Name"
-    },
-    "password" : "Password",
-    "@password" : {
-        "description" : "Password"
-    },
-    "forgotYourPassword" : "Forgot your password ?",
-    "@forgotYourPassword" : {
-        "description" : "Forgot your password ?"
-    },
-    "doNotHaveAccount" : "don't have account",
-    "@doNotHaveAccount" : {
-        "description" : "don't have account"
-    },
-    "signUp" : "Sign Up",
-    "@signUp" : {
-        "description" : "Sign Up"
-    },
-    "newToApp" : "New to App",
-    "@newToApp" : {
-        "description" : "New to App"
-    },
-    "createNewAccount" : "Create new account",
-    "@createNewAccount" : {
-        "description" : "Create new account"
-    },
-    "fullName" : "Full Name",
-    "@fullName" : {
-        "description" : "Full Name"
-    },
-    "confirmPassword" : "Confirm Password",
-    "@confirmPassword" : {
-        "description" : "Confirm Password"
-    },
-    "register" : "Register",
-    "@register" : {
-        "description" : "Register"
-    },
-    "backToLogin" : "Back to Login",
-    "@backToLogin" : {
-        "description" : "Back to Login"
-    },
-    "alreadyHaveAnAccount" : "Already have an account",
-    "@alreadyHaveAnAccount" : {
-        "description" : "Already have an account"
-    },
-    "privacyAndPolicy" : "Privacy and Policy",
-    "@privacyAndPolicy" : {
-        "description" : "Privacy and Policy"
-    },
-    "notifications" : "Notifications",
-    "@notifications" : {
-        "description" : "Notifications"
-    },
-    "accessibility" : "Accessibility",
-    "@accessibility" : {
-        "description" : "Accessibility"
-    },
-    "display" : "Display",
-    "@display" : {
-        "description" : "Display"
-    },
     "language" : "Language",
     "@language" : {
         "description" : "Language"
     },
-    "contactUs" : "Contact Us",
-    "@contactUs" : {
-        "description" : "Contact Us"
-    },
-    "saudiArabia" : "Saudi Arabia",
-    "@saudiArabia" : {
-        "description" : "Saudi Arabia"
-    },
-    "riyadh" : "Riyadh",
-    "@riyadh" : {
-        "description" : "Riyadh"
-    },
-    "name" : "Name",
-    "@name" : {
-        "description" : "Name"
-    },
-    "email" : "Email",
-    "@email" : {
-        "description" : "Email"
-    },
-    "country" : "Country",
-    "@country" : {
-        "description" : "country"
-    },
-    "city" : "City",
-    "@city" : {
-        "description" : "City"
-    },
-    "birthDate" : "Birth Date",
-    "@birthDate" : {
-        "description" : "Birth Date"
+    "save" : "Save",
+    "@save" : {
+        "description" : "Save"
     },
     "helloSara" : "Hello Sara!",
     "@helloSara" : {
@@ -131,9 +23,61 @@
     "@youAreOffline" : {
         "description" : "you are currently offline"
     },
-    "yourTimeBalanceIs" : "Your time balance is",
+    "yourTimeBalanceIs" : "Your time balance is 149.969 h",
     "@yourTimeBalanceIs" : {
         "description" : "Your time balance is"
+    },
+    "h" : "149.969 h",
+    "@h" : {
+        "description" : "149.969 h"
+    },
+    "accountInformation" : "Account Information",
+    "@accountInformation" : {
+        "description" : " Account Information"
+    },
+    "status" : "Status",
+    "@status" : {
+        "description" : "Status"
+    },
+    "history" : "History",
+    "@history" : {
+        "description" : "History"
+    },
+    "logout" : "Logout",
+    "@logout" : {
+        "description" : "Logout"
+    },
+    "education" : "Education",
+    "@education" : {
+        "description" : "Education"
+    },
+    "health" : "Health",
+    "@health" : {
+        "description" : "Health"
+    },
+    "personal" : "Personal",
+    "@personal" : {
+        "description" : "Personal"
+    },
+    "environment" : "Environment",
+    "@environment" : {
+        "description" : "Environment"
+    },
+    "support" : "Support",
+    "@support" : {
+        "description" : "Support"
+    },
+    "talkToUs" : "TALK TO US",
+    "@talkToUs" : {
+        "description" : "TALK TO US"
+    },
+    "online" : "Online",
+    "@online" : {
+        "description" : "Online"
+    },
+    "available" : "Available",
+    "@available" : {
+        "description" : "Available"
     }
 
 }

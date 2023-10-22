@@ -28,7 +28,7 @@ class LanguageDropDown extends ConsumerWidget {
               width: 1,
             ),
           ),
-          labelText: AppLocalizations.of(context)!.language,
+          labelText: "Language",
         ),
         items: language.map((String val) {
           return DropdownMenuItem(

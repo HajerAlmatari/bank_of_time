@@ -4,7 +4,6 @@ import 'package:bank_off_time/features/auth/presentation/views/register_view.dar
 import 'package:bank_off_time/features/main/presentation/view/main_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -60,7 +59,7 @@ class _LoginFormState extends State<LoginForm> {
                     : const Color(0xffA2A0A8),
               ),
             ),
-            hintText: AppLocalizations.of(context)!.userName,
+            hintText: "User Name",
             textEditingController: textEditingControllers.userNameController,
             capitalization: TextCapitalization.none,
           ), //User Name
@@ -91,7 +90,7 @@ class _LoginFormState extends State<LoginForm> {
                       ? Theme.of(context).colorScheme.primary
                       : const Color(0xffA2A0A8),
                 )),
-            hintText: AppLocalizations.of(context)!.password,
+            hintText: "Password",
             obscure: visible == true ? false : true,
             textEditingController:
             textEditingControllers.passwordController,
@@ -113,7 +112,7 @@ class _LoginFormState extends State<LoginForm> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.forgotYourPassword,
+                  "Forgot your password?",
                   style: Theme.of(context)
                       .textTheme
                       .bodyMedium!
@@ -135,9 +134,9 @@ class _LoginFormState extends State<LoginForm> {
                 Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => MainView()), (route) => false);
               }
             },
-            buttonChild:  Text(
-              AppLocalizations.of(context)!.login,
-              style: const TextStyle(color: Colors.white),
+            buttonChild:  const Text(
+              "Login",
+              style: TextStyle(color: Colors.white),
             ),
           ),
           InkWell(
@@ -155,7 +154,7 @@ class _LoginFormState extends State<LoginForm> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(AppLocalizations.of(context)!.doNotHaveAccount,
+                  Text("Don’t have account?",
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium!
@@ -164,7 +163,7 @@ class _LoginFormState extends State<LoginForm> {
                           fontSize: 16,
                           color: const Color(0xff9CA3AF))),
                   Text(
-                    AppLocalizations.of(context)!.signUp,
+                    " Sign Up",
                     style: Theme.of(context)
                         .textTheme
                         .bodyMedium!

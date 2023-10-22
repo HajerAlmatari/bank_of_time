@@ -7,6 +7,7 @@ import 'package:bank_off_time/features/profile/presentation/view/history_view.da
 import 'package:bank_off_time/features/profile/presentation/view/status_view.dart';
 import 'package:bank_off_time/core/widgets/custom_button_with_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class ProfileView extends StatelessWidget {
                 height: 30,
               ),
               CustomButtonWithIcon(
-                title: "Account Information",
+                title: AppLocalizations.of(context)!.accountInformation,
                 onTap: (){
                   slideNavigator(context, const AccountInfoView());
                 },
@@ -34,7 +35,7 @@ class ProfileView extends StatelessWidget {
                 height: 10,
               ),
               CustomButtonWithIcon(
-                title: "Status",
+                title: AppLocalizations.of(context)!.status,
                 onTap: (){
                   slideNavigator(context, const StatusView());
                 },
@@ -43,7 +44,7 @@ class ProfileView extends StatelessWidget {
                 height: 10,
               ),
               CustomButtonWithIcon(
-                title: "History",
+                title: AppLocalizations.of(context)!.history,
                 onTap: (){
                   slideNavigator(context, const HistoryView());
                 },
@@ -53,15 +54,15 @@ class ProfileView extends StatelessWidget {
                 width: MediaQuery.of(context).size.width / 2,
                 child: CustomButton(
                   borderRadius: 10,
-                  buttonChild: const  Row(
+                  buttonChild: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Log Out",
-                        style: TextStyle(color: Colors.white),
+                        AppLocalizations.of(context)!.logout,
+                        style: const  TextStyle(color: Colors.white),
                       ),
-                      SizedBox(width: 4,),
-                      Icon(Icons.logout, color: Colors.white, size: 20,)
+                      const SizedBox(width: 4,),
+                      const Icon(Icons.logout, color: Colors.white, size: 20,)
                     ],
                   ),
                   backgroundColor: Colors.red,

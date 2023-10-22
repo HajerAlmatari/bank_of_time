@@ -17,7 +17,7 @@ class MainProvider extends ChangeNotifier{
   void setLocaleFromSharedPref()async{
     final String localeString = await SharedPref.getLocale();
     locale = Locale(localeString);
-    changeSelectedOption ( locale == Locale("ar") ? 1 : 2);
+    changeSelectedOption ( locale == const Locale("ar") ? 1 : 2);
     notifyListeners();
   }
 

@@ -4,7 +4,6 @@ import 'package:bank_off_time/core/widgets/custom_button_with_icon.dart';
 import 'package:bank_off_time/features/settings/presentation/view/contact_us_view.dart';
 import 'package:bank_off_time/features/settings/presentation/view/language_modal.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({Key? key}) : super(key: key);
@@ -23,35 +22,35 @@ class SettingsView extends StatelessWidget {
                 height: 30,
               ),
               CustomButtonWithIcon(
-                title: AppLocalizations.of(context)!.privacyAndPolicy,
+                title: "Privacy and Policy",
                 onTap: () {},
               ),
               const SizedBox(
                 height: 10,
               ),
               CustomButtonWithIcon(
-                title: AppLocalizations.of(context)!.notifications,
+                title: "Notification",
                 onTap: () {},
               ),
               const SizedBox(
                 height: 10,
               ),
               CustomButtonWithIcon(
-                title: AppLocalizations.of(context)!.accessibility,
+                title: "Accessibility",
                 onTap: () {},
               ),
               const SizedBox(
                 height: 10,
               ),
               CustomButtonWithIcon(
-                title: AppLocalizations.of(context)!.display,
+                title: "Display",
                 onTap: () {},
               ),
               const SizedBox(
                 height: 10,
               ),
               CustomButtonWithIcon(
-                title: AppLocalizations.of(context)!.language,
+                title: "Language",
                 onTap: () {
                   // slideNavigator(context, const LanguageView());
                   showModalBottomSheet(
@@ -72,7 +71,7 @@ class SettingsView extends StatelessWidget {
                 height: 10,
               ),
               CustomButtonWithIcon(
-                title: AppLocalizations.of(context)!.contactUs,
+                title: "Contact Us",
                 onTap: () {
                   slideNavigator(context, const ContactUsView());
                 },

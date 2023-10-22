@@ -16,7 +16,7 @@ class LanguageModal extends ConsumerWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(AppLocalizations.of(context)!.language, style: TextStyle(
+          Text(AppLocalizations.of(context)!.language, style: const TextStyle(
             color: Colors.black,
             fontSize: 20,
             fontWeight: FontWeight.bold
@@ -28,7 +28,6 @@ class LanguageModal extends ConsumerWidget {
             groupValue: provider.selectedOption,
             value: 1,
             onChange: (value){
-              print("the value is $value");
               provider.changeSelectedOption(1);
             },
           ),
@@ -39,9 +38,7 @@ class LanguageModal extends ConsumerWidget {
             groupValue: provider.selectedOption,
             value: 2,
             onChange: (value){
-              print("the value is $value");
 
-              //hi hajer 
               provider.changeSelectedOption(2);
             },
           ),

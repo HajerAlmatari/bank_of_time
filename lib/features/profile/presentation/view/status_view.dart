@@ -1,6 +1,7 @@
 import 'package:bank_off_time/core/widgets/custom_app_bar.dart';
 import 'package:bank_off_time/features/profile/presentation/view/widgets/status_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class StatusView extends StatefulWidget {
   const StatusView({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class _StatusViewState extends State<StatusView> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Text("Status", style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                child: Text(AppLocalizations.of(context)!.status, style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                   color: Theme.of(context).colorScheme.primary,
                 ),),
               ),
@@ -37,7 +38,7 @@ class _StatusViewState extends State<StatusView> {
               StatusCard(
                 value: onlineValue!,
                 bottomBorder: true,
-                title: "online",
+                title: AppLocalizations.of(context)!.online,
                 onChange: (value){
                   setState(() {
                     onlineValue = value;
@@ -51,7 +52,7 @@ class _StatusViewState extends State<StatusView> {
               StatusCard(
                 value: availableValue!,
                 bottomBorder: false,
-                title: "Available",
+                title: AppLocalizations.of(context)!.available,
                 onChange: (value){
                   setState(() {
                     availableValue = value;

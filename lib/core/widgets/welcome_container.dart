@@ -37,21 +37,21 @@ class WelcomeContainer extends StatelessWidget {
           children: [
             Text(
               AppLocalizations.of(context)!.helloSara,
-              style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
             ),
             Text(
               AppLocalizations.of(context)!.youAreOffline,
-              style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
             ),
             Row(
               children: [
                 Text(
             AppLocalizations.of(context)!.yourTimeBalanceIs,
-                  style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  "149.969 h",
-                  style: TextStyle(
+                  AppLocalizations.of(context)!.h,
+                  style: const TextStyle(
                       fontSize: 9,
                       fontWeight: FontWeight.w900,
                       color: Colors.indigo),

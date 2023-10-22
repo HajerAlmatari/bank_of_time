@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AccountInfoContainer extends StatelessWidget {
   const AccountInfoContainer({Key? key}) : super(key: key);
@@ -22,23 +21,23 @@ class AccountInfoContainer extends StatelessWidget {
                 offset: const Offset(0, 10),
               ),
             ]),
-        child:  Padding(
-          padding: const EdgeInsets.only(top: 80.0),
+        child: const Padding(
+          padding: EdgeInsets.only(top: 80.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const DefaultTextStyle(
+              DefaultTextStyle(
                 style: TextStyle(color: Colors.black,fontSize: 17),
                 child: Text("Sara", textAlign: TextAlign.center,),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal : 20.0,  vertical : 10.0),
                 child: Divider(),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const Column(
+                  Column(
                     children: [
                       Icon(Icons.volunteer_activism_outlined, size: 25, color: Colors.indigo),
                       SizedBox(height: 7,),
@@ -50,21 +49,21 @@ class AccountInfoContainer extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      const Icon(Icons.language, size: 25,),
-                      const SizedBox(height: 7,),
+                      Icon(Icons.language, size: 25,),
+                      SizedBox(height: 7,),
                       DefaultTextStyle(
-                        style: const TextStyle(color: Colors.black,fontSize: 17),
-                        child: Text(AppLocalizations.of(context)!.english,),
+                        style: TextStyle(color: Colors.black,fontSize: 17),
+                        child: Text("English",),
                       ),
                     ],
                   ),
                   Column(
                     children: [
-                      const Icon(Icons.location_on_outlined, size: 25,),
-                      const SizedBox(height: 7,),
+                      Icon(Icons.location_on_outlined, size: 25,),
+                      SizedBox(height: 7,),
                       DefaultTextStyle(
-                        style: const TextStyle(color: Colors.black,fontSize: 17),
-                        child: Text(AppLocalizations.of(context)!.riyadh,),
+                        style: TextStyle(color: Colors.black,fontSize: 17),
+                        child: Text("Riyadh",),
                       ),
                     ],
                   ),
