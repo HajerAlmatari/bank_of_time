@@ -1,6 +1,5 @@
 import 'package:bank_off_time/core/widgets/custom_button.dart';
 import 'package:bank_off_time/core/widgets/custom_textformfield.dart';
-import 'package:bank_off_time/features/main/presentation/view/main_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -170,7 +169,6 @@ class _RegisterFormState extends State<RegisterForm> {
                   ),
                   onTap: () {
                     if(_formKey.currentState!.validate()){
-                      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => MainView()), (route) => false);
                     }
                   },
                 ),

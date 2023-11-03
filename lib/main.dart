@@ -10,7 +10,6 @@ void main() {
 
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-          statusBarColor: Color.fromRGBO(255, 234, 244, 1.0),
           statusBarIconBrightness: Brightness.dark
       )
   );
@@ -34,7 +33,6 @@ class MyApp extends ConsumerWidget {
           primary: const Color.fromRGBO(70, 150, 115, 1),
           seedColor: const Color.fromRGBO(70, 150, 115, 1),
         ),
-        scaffoldBackgroundColor: const Color.fromRGBO(255, 234, 244, 1.0),
         useMaterial3: true,
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,

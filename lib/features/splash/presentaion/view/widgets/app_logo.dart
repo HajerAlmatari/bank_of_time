@@ -21,7 +21,7 @@ class AppLogo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              "assets/images/app_logo.PNG",
+              "assets/images/app_logo1.PNG",
               width: 80,
               height: 80,
             ),
