@@ -1,5 +1,6 @@
 
 import 'package:bank_off_time/features/auth/presentation/views/widgets/login_form.dart';
+import 'package:bank_off_time/features/settings/presentation/view/language_modal.dart';
 import 'package:bank_off_time/features/splash/presentaion/view/widgets/app_logo.dart';
 import 'package:flutter/material.dart';
 
@@ -30,24 +31,55 @@ class LoginViewState extends State<LoginView> {
                 const SizedBox(
                   height: 38,
                 ),
-                Text(
-                  "Hi Welcome Back!",
-                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 24,
-                      ),
-                ), //Hi Welcome Back!
-                const SizedBox(
-                  height: 4,
-                ),
-                Text(
-                  "Sign in to your account",
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16,
-                        color: const Color(0xffA2A0A8),
-                      ),
-                ), //Sign in to your account
+                /// The Edit Start From Here
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Column(
+                      children : [
+                        Text(
+                          /// to translate this text you must replace it with AppLocalizations.of(context)!.hiWelcomeBack,
+                          "Hi Welcome Back!",
+                          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 24,
+                          ),
+                        ), //Hi Welcome Back!
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          /// to translate this text you must replace it with AppLocalizations.of(context)!.signInToYourAccount,
+                          "Sign in to your account",
+                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16,
+                            color: const Color(0xffA2A0A8),
+                          ),
+                        )
+                      ]
+                    ),
+                    InkWell(
+                      child: const Icon(Icons.language),
+                      onTap : (){
+                        showModalBottomSheet(
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(50.0),
+                              topLeft: Radius.circular(50.0),
+                            ),
+                          ),
+                          context: context,
+                          builder: (context) {
+                            return const LanguageModal();
+                          },
+                        );
+                      }
+                    )
+                  ]
+                ), //
+                /// The Edit End Here
 
                 Container(
                   alignment: Alignment.center,

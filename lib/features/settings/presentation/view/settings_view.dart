@@ -2,6 +2,7 @@ import 'package:bank_off_time/core/functions/slide_navigation.dart';
 import 'package:bank_off_time/core/widgets/custom_app_bar.dart';
 import 'package:bank_off_time/core/widgets/custom_button_with_icon.dart';
 import 'package:bank_off_time/features/settings/presentation/view/contact_us_view.dart';
+import 'package:bank_off_time/features/settings/presentation/view/display_view.dart';
 import 'package:bank_off_time/features/settings/presentation/view/language_modal.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +45,9 @@ class SettingsView extends StatelessWidget {
               ),
               CustomButtonWithIcon(
                 title: "Display",
-                onTap: () {},
+                onTap: () {
+                  slideNavigator(context, DisplayView());
+                },
               ),
               const SizedBox(
                 height: 10,

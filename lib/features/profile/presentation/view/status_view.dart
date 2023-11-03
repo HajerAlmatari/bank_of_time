@@ -45,7 +45,6 @@ class _StatusViewState extends State<StatusView> {
                   });
                 },
               ),
-
               const SizedBox(
                 height: 10,
               ),
