@@ -40,6 +40,7 @@ class MyApp extends ConsumerWidget {
       locale: notifier.locale,
       navigatorKey: Constants.navigatorKey,
       home: const SplashView(),
+      //hello test_branch
     );
   }
 }
