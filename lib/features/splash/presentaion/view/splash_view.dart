@@ -1,8 +1,11 @@
 import 'dart:async';
+import 'package:bank_off_time/core/providers/session_provider.dart';
 import 'package:bank_off_time/features/auth/presentation/views/login_view.dart';
+import 'package:bank_off_time/features/main/presentation/view/main_view.dart';
 import 'package:bank_off_time/features/splash/presentaion/view/widgets/app_logo.dart';
 import 'package:bank_off_time/features/splash/presentaion/view/widgets/page_transtion.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -49,9 +52,13 @@ class SplashViewState extends State<SplashView> with TickerProviderStateMixin {
       });
     });
 
-    Timer(const Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 4), () {
       setState(() {
-        Navigator.pushReplacement(context, PageTransition(const LoginView()));
+        if(Provider.of<SessionProvider>(context, listen: false).isLoggedIn){
+          Navigator.pushReplacement(context, PageTransition(MainView()));
+        }else{
+          Navigator.pushReplacement(context, PageTransition(const LoginView()));
+        }
       });
     });
   }

@@ -1,6 +1,7 @@
 import 'package:bank_off_time/core/shared_pref/auth_pref.dart';
 import 'package:bank_off_time/features/auth/data/models/user_model.dart';
 import 'package:bank_off_time/features/auth/presentation/views/login_view.dart';
+import 'package:bank_off_time/features/main/presentation/view/main_view.dart';
 import 'package:flutter/material.dart';
 
 class SessionProvider with ChangeNotifier{
@@ -42,7 +43,7 @@ class SessionProvider with ChangeNotifier{
     _setAuthUser(user);
     AuthPref.saveAuthUser(user);
     notifyListeners();
-    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (builder) => const MainView()), (route) => false);
+    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (builder) => MainView()), (route) => false);
   }
 
   void logout(BuildContext context)async{
