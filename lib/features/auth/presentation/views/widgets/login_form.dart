@@ -130,7 +130,7 @@ class _LoginFormState extends State<LoginForm> {
           CustomButton(
             onTap: () {
               if(_formKey.currentState!.validate()){
-                // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => MainView()), (route) => false);
+                Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => MainView()), (route) => false);
               }
             },
             buttonChild:  const Text(

@@ -38,6 +38,9 @@ dependencies:
   flutter_riverpod: ^2.4.3
   intl: ^0.18.0
   shared_preferences: ^2.2.2
+  dio: ^5.4.0
+  connectivity_plus: ^5.0.2
+  cherry_toast: ^1.8.0
 
 dev_dependencies:
   flutter_test:
