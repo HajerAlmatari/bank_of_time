@@ -1,4 +1,5 @@
 import 'package:bank_off_time/core/functions/slide_navigation.dart';
+import 'package:bank_off_time/core/providers/session_provider.dart';
 import 'package:bank_off_time/core/widgets/custom_app_bar.dart';
 import 'package:bank_off_time/core/widgets/custom_button.dart';
 import 'package:bank_off_time/features/auth/presentation/views/login_view.dart';
@@ -8,6 +9,7 @@ import 'package:bank_off_time/features/profile/presentation/view/status_view.dar
 import 'package:bank_off_time/core/widgets/custom_button_with_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({Key? key}) : super(key: key);
@@ -67,7 +69,8 @@ class ProfileView extends StatelessWidget {
                   ),
                   backgroundColor: Colors.red,
                   onTap: () {
-                    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const LoginView()), (route) => false);
+                    Provider.of<SessionProvider>(context,  listen: false).logout(context);
+                    // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const LoginView()), (route) => false);
                   },
                 ),
               ),

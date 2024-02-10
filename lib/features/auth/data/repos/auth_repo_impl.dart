@@ -35,5 +35,27 @@ class AuthRepository{
   }
 
 
+  Future<User?> register(dynamic data, BuildContext context)async{
+
+    try{
+      Response? response = await _apiServices.getPostApiResponse(AppUrls.registerUrl, data);
+      final loginResponse = loginResponseFromJson(response!.data); /// TODO change this
+      return loginResponse.data.user; /// TODO change this
+    }catch(e){
+
+
+      if(e is DioException){
+        // ToastUtil.showError("Wrong Email or Password", context);
+        // print("the error is $e");
+        // print("the error response is ${e.response}");
+        Response? response = e.response;
+        final ErrorModel errorModel = errorModelFromJson(response!.data);
+        //
+        ToastUtil.showError(errorModel.message,context);
+      }
+      rethrow;
+    }
+  }
+
 
 }

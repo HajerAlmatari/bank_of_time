@@ -4,15 +4,9 @@ class AppUrls{
 
 
   static const String loginUrl = "$_baseApi/auth/login";
+  static const String registerUrl = "$_baseApi/auth/register"; /// TODO check this
 
 
-  static String checkAttendeeUserUrl(String code, int userId) => "$_baseApi/attendees/check/$code?user_id=$userId";
-  static const String allAttendeesUrl = "$_baseApi/attendees";
-
-
-  static const String registerUserAttendanceToRoomUrl = "$_baseApi/attendances";
-  static const String attendancesSummaryUrl = "$_baseApi/attendances/summary";
-  static const String attendancesFiltersUrl = "$_baseApi/attendances/filters";
 
 
 }
