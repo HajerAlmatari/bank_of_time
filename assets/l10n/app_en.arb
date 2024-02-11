@@ -78,6 +78,14 @@
     "available" : "Available",
     "@available" : {
         "description" : "Available"
+    },
+    "hello" : "Welcome, {username}",
+    "@hello" : {
+        "description" : "A welcome message",
+        "placeholders" : {
+            "username" : {
+                "type" : "String"
+            }
+        }
     }
-
 }

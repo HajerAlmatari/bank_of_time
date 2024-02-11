@@ -18,5 +18,6 @@
     "support" : "الدعم",
     "talkToUs" : "تواصل معنا",
     "available" : "متاح",
-    "online" : "متصل"
+    "online" : "متصل",
+    "hello" : "مرحباً, {username}"
 }

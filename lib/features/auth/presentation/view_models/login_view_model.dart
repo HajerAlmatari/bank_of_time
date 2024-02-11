@@ -35,13 +35,13 @@ class LoginViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  void loginWithUserNameAndPassword(TextEditingController userName, TextEditingController password, BuildContext context) async {
+  void loginWithUserNameAndPassword(TextEditingController email, TextEditingController password, BuildContext context) async {
     if (await NetworkConnectivity.instance.check()) {
       try {
         _setIsLoading(true);
 
         Map<String, String> data = {
-          "email": userName.text,
+          "email": email.text,
           "password": password.text
         };
 

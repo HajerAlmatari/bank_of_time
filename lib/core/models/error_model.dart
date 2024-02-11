@@ -1,33 +1,33 @@
 // To parse this JSON data, do
 //
-//     final errorModel = errorModelFromJson(jsonString);
+//     final BaseResponseModel = BaseResponseModelFromJson(jsonString);
 
 import 'dart:convert';
 
-ErrorModel errorModelFromJson(String str) => ErrorModel.fromMap(json.decode(str));
+BaseResponseModel baseResponseModelFromJson(String str) => BaseResponseModel.fromMap(json.decode(str));
 
-String errorModelToJson(ErrorModel data) => json.encode(data.toJson());
+String baseResponseModelToJson(BaseResponseModel data) => json.encode(data.toJson());
 
-class ErrorModel {
+class BaseResponseModel {
   dynamic data;
   String message;
   int code;
 
-  ErrorModel({
+  BaseResponseModel({
     required this.data,
     required this.message,
     required this.code,
   });
 
-  factory ErrorModel.fromMap(Map<String, dynamic> map) => ErrorModel(
+  factory BaseResponseModel.fromMap(Map<String, dynamic> map) => BaseResponseModel(
     data: map["data"],
     message: map["message"],
-    code: map["code"],
+    code: map["status"],
   );
 
   Map<String, dynamic> toJson() => {
     "data": data,
     "message": message,
-    "code": code,
+    "status": code,
   };
 }

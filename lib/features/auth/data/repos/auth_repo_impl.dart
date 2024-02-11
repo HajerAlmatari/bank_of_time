@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bank_off_time/core/data/app_urls.dart';
 import 'package:bank_off_time/core/data/network/base_api_services.dart';
 import 'package:bank_off_time/core/models/error_model.dart';
@@ -16,17 +18,22 @@ class AuthRepository{
 
     try{
       Response? response = await _apiServices.getPostApiResponse(AppUrls.loginUrl, data);
-      final loginResponse = loginResponseFromJson(response!.data);
-      return loginResponse.data.user;
+      final baseResponseModel = baseResponseModelFromJson(response!.data);
+
+      if(baseResponseModel.code == 201 || baseResponseModel.code == 200){
+
+        return userFromJson(jsonEncode(baseResponseModel.data));
+      }
+      ToastUtil.showError(baseResponseModel.message,context);
+
+
+      return null;
     }catch(e){
 
 
       if(e is DioException){
-        // ToastUtil.showError("Wrong Email or Password", context);
-        // print("the error is $e");
-        // print("the error response is ${e.response}");
         Response? response = e.response;
-        final ErrorModel errorModel = errorModelFromJson(response!.data);
+        final BaseResponseModel errorModel = baseResponseModelFromJson(response!.data);
         //
         ToastUtil.showError(errorModel.message,context);
       }
@@ -39,8 +46,16 @@ class AuthRepository{
 
     try{
       Response? response = await _apiServices.getPostApiResponse(AppUrls.registerUrl, data);
-      final loginResponse = loginResponseFromJson(response!.data); /// TODO change this
-      return loginResponse.data.user; /// TODO change this
+      final baseResponseModel = baseResponseModelFromJson(response!.data);
+
+      if(baseResponseModel.code == 201 || baseResponseModel.code == 200){
+
+        return userFromJson(jsonEncode(baseResponseModel.data));
+      }
+      ToastUtil.showError(baseResponseModel.message,context);
+
+
+      return null;
     }catch(e){
 
 
@@ -49,7 +64,7 @@ class AuthRepository{
         // print("the error is $e");
         // print("the error response is ${e.response}");
         Response? response = e.response;
-        final ErrorModel errorModel = errorModelFromJson(response!.data);
+        final BaseResponseModel errorModel = baseResponseModelFromJson(response!.data);
         //
         ToastUtil.showError(errorModel.message,context);
       }

@@ -47,12 +47,12 @@ class RegisterViewModel with ChangeNotifier {
 
         Map<String, String> data = {
           "email": email.text,
-          "user_name": userName.text,
-          "full_name": fullName.text,
+          "username": userName.text,
+          "name": fullName.text,
           "password": password.text
         };
 
-        User? user = await _myRepo.login(data, context);
+        User? user = await _myRepo.register(data, context);
         _setIsLoading(false);
 
         if (user != null) {

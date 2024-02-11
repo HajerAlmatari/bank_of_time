@@ -1,5 +1,7 @@
+import 'package:bank_off_time/core/providers/session_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class WelcomeContainer extends StatelessWidget {
   final bool showBack;
@@ -36,7 +38,7 @@ class WelcomeContainer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              AppLocalizations.of(context)!.helloSara,
+              AppLocalizations.of(context)!.hello(Provider.of<SessionProvider>(context, listen: false).authUser?.name??""),
               style: const TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
             ),
             Text(
