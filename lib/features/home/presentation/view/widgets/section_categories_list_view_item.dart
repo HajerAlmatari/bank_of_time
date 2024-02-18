@@ -1,11 +1,14 @@
 import 'package:bank_off_time/features/settings/presentation/view/categories_view.dart';
+import 'package:bank_off_time/features/settings/presentation/view/settings_view.dart';
 import 'package:flutter/material.dart';
 
-class VolunteerSectionsListViewItem extends StatelessWidget {
+import '../../../../settings/presentation/view/contact_us_view.dart';
+
+class SectionCategoriesListViewItem extends StatelessWidget {
   final String title;
   final String imageName;
 
-  const VolunteerSectionsListViewItem({
+  const SectionCategoriesListViewItem({
     required this.title,
     required this.imageName,
     Key? key,
@@ -13,12 +16,12 @@ class VolunteerSectionsListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int sectionId = getSectionId(imageName);
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: InkWell(
         onTap: () {
           print("Clicked");
+          // Navigate to the new page
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -27,16 +30,7 @@ class VolunteerSectionsListViewItem extends StatelessWidget {
               clipBehavior: Clip.antiAliasWithSaveLayer,
               child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CategoryDetailsPage(
-                        pageTitle: title,
-                        sectionId:
-                        sectionId,
-                      ),
-                    ),
-                  );
+                  // Handle the tap on the image if needed
                 },
                 child: Image.asset(
                   imageName,
@@ -53,18 +47,5 @@ class VolunteerSectionsListViewItem extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  int getSectionId(String imageName) {
-    if (imageName.contains('education.png')) {
-      return 1;
-    } else if (imageName.contains('health.png')) {
-      return 2;
-    } else if (imageName.contains('personal.png')) {
-      return 3;
-    } else if (imageName.contains('environment.png')) {
-      return 4;
-    }
-    return 0;
   }
 }

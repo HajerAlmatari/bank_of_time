@@ -1,4 +1,25 @@
 {
+    "math" : "Math",
+    "chemistry" : "Chemistry",
+    "biology" : "Biology",
+    "physics" : "Physics",
+
+    "alzheimer" : "Alzheimer Disease",
+    "paralysis" : "Paralysis",
+    "disability" : "Disability",
+    "diabetes" : "Diabetes Mellitus",
+
+    "shopping" : "Shopping",
+    "reading" : "Reading",
+    "consultation" : "Consultation",
+    "art" : "Art",
+
+    "cleaning" : "Cleaning",
+    "agriculture" : "Agriculture",
+    "organizing" : "Organizing",
+    "awareness" : "Awareness",
+
+
     "arabic" : "Arabic",
     "@arabic" : {
         "description" : "Arabic"

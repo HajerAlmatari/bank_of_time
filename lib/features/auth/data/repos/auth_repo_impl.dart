@@ -52,6 +52,7 @@ class AuthRepository{
 
         return userFromJson(jsonEncode(baseResponseModel.data));
       }
+
       ToastUtil.showError(baseResponseModel.message,context);
 
 
