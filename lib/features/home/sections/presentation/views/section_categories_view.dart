@@ -1,13 +1,13 @@
-import 'package:bank_off_time/features/home/presentation/view/widgets/section_categories_list_view.dart';
+import 'package:bank_off_time/features/home/sections/presentation/views/widgets/section_categories_list_view.dart';
 import 'package:flutter/material.dart';
 
-import '../../../home/presentation/view/widgets/home_search_bar.dart';
+import '../../../presentation/view/widgets/home_search_bar.dart';
 
-class CategoryDetailsPage extends StatelessWidget {
+class SectionCategoriesView extends StatelessWidget {
   final String pageTitle;
   final int sectionId;
 
-  const CategoryDetailsPage(
+  const SectionCategoriesView(
       {Key? key, required this.pageTitle, required this.sectionId})
       : super(key: key);
 

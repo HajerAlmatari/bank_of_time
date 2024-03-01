@@ -1,4 +1,4 @@
-import 'package:bank_off_time/features/settings/presentation/view/categories_view.dart';
+import 'package:bank_off_time/features/home/sections/presentation/views/section_categories_view.dart';
 import 'package:flutter/material.dart';
 
 class VolunteerSectionsListViewItem extends StatelessWidget {
@@ -30,7 +30,7 @@ class VolunteerSectionsListViewItem extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CategoryDetailsPage(
+                      builder: (context) => SectionCategoriesView(
                         pageTitle: title,
                         sectionId:
                         sectionId,

@@ -9,14 +9,14 @@ class User {
   String name;
   String email;
   String username;
-  String password;
+  String? password;
 
   User({
     required this.id,
     required this.name,
     required this.email,
     required this.username,
-    required this.password,
+    this.password,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => User(

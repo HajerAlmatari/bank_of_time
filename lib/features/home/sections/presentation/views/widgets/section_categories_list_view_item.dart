@@ -1,8 +1,6 @@
-import 'package:bank_off_time/features/settings/presentation/view/categories_view.dart';
-import 'package:bank_off_time/features/settings/presentation/view/settings_view.dart';
+import 'package:bank_off_time/features/home/sections/features/section_details/presentation/views/section_category_details_view.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../settings/presentation/view/contact_us_view.dart';
 
 class SectionCategoriesListViewItem extends StatelessWidget {
   final String title;
@@ -20,7 +18,6 @@ class SectionCategoriesListViewItem extends StatelessWidget {
       padding: const EdgeInsets.all(5.0),
       child: InkWell(
         onTap: () {
-          print("Clicked");
           // Navigate to the new page
         },
         child: Column(
@@ -31,6 +28,7 @@ class SectionCategoriesListViewItem extends StatelessWidget {
               child: InkWell(
                 onTap: () {
                   // Handle the tap on the image if needed
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SectionCategoryDetailsView(title: title,)));
                 },
                 child: Image.asset(
                   imageName,

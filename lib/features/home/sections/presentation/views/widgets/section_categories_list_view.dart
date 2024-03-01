@@ -1,5 +1,5 @@
 import 'package:bank_off_time/core/utils/constants.dart';
-import 'package:bank_off_time/features/home/presentation/view/widgets/section_categories_list_view_item.dart';
+import 'package:bank_off_time/features/home/sections/presentation/views/widgets/section_categories_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
