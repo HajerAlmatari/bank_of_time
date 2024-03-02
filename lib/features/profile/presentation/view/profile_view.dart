@@ -3,6 +3,7 @@ import 'package:bank_off_time/core/providers/session_provider.dart';
 import 'package:bank_off_time/core/widgets/custom_app_bar.dart';
 import 'package:bank_off_time/core/widgets/custom_button.dart';
 import 'package:bank_off_time/features/auth/presentation/views/login_view.dart';
+import 'package:bank_off_time/features/profile/features/skills/presentation/views/skills_view.dart';
 import 'package:bank_off_time/features/profile/presentation/view/account_info_view.dart';
 import 'package:bank_off_time/features/profile/presentation/view/history_view.dart';
 import 'package:bank_off_time/features/profile/presentation/view/status_view.dart';
@@ -31,6 +32,15 @@ class ProfileView extends StatelessWidget {
                 title: AppLocalizations.of(context)!.accountInformation,
                 onTap: (){
                   slideNavigator(context, const AccountInfoView());
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomButtonWithIcon(
+                title: AppLocalizations.of(context)!.skills,
+                onTap: (){
+                  slideNavigator(context, const SkillsView());
                 },
               ),
               const SizedBox(

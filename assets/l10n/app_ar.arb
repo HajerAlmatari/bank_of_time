@@ -44,5 +44,8 @@
     "talkToUs" : "تواصل معنا",
     "available" : "متاح",
     "online" : "متصل",
-    "hello" : "مرحباً, {username}"
+    "hello" : "مرحباً, {username}",
+    "skills" : "المهارات",
+    "add" : "إضافة",
+    "add_new_skill" : "إضافة مهارة جديدة"
 }

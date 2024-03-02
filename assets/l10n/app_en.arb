@@ -108,5 +108,8 @@
                 "type" : "String"
             }
         }
-    }
+    },
+    "skills" : "Skills",
+    "add" : "Add",
+    "add_new_skill" : "Add new skill"
 }
