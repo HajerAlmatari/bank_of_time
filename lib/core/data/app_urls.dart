@@ -7,6 +7,7 @@ class AppUrls{
 
 
   static const String categoriesUrl = "$_baseApi/categories/skills";
+  static const String addSkillUrl = "$_baseApi/persons/add-skills/";
 
 
 }

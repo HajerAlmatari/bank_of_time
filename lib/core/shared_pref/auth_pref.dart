@@ -11,7 +11,6 @@ class AuthPref {
   static void saveAuthUser(User userModel) async {
     SharedPreferences pref = await SharedPreferences.getInstance();
 
-    print("hello from saveAuthUser user is ${userModel.toJson()}");
 
     pref.setInt(_idKey, userModel.id);
     pref.setString(_nameKey, userModel.name);

@@ -2,7 +2,7 @@ import 'package:bank_off_time/features/home/data/models/category.dart';
 import 'package:bank_off_time/features/home/features/sections/presentation/views/section_categories_view.dart';
 import 'package:bank_off_time/main_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class VolunteerSectionsListViewItem extends ConsumerWidget {
   final CategoryModel categoryModel;

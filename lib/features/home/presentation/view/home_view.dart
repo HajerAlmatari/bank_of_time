@@ -3,7 +3,7 @@ import 'package:bank_off_time/features/home/presentation/view/widgets/home_searc
 import 'package:bank_off_time/features/home/presentation/view/widgets/volunteer_sections_list_view.dart';
 import 'package:bank_off_time/features/home/presentation/view_models/home_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 
 class HomeView extends ConsumerWidget {

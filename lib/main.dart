@@ -4,8 +4,8 @@ import 'package:bank_off_time/features/splash/presentaion/view/splash_view.dart'
 import 'package:bank_off_time/main_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:provider/provider.dart' as p;
 
 void main() {

@@ -3,7 +3,7 @@ import 'package:bank_off_time/features/main/presentation/view/widgets/custom_bot
 import 'package:bank_off_time/features/profile/presentation/view/profile_view.dart';
 import 'package:bank_off_time/features/settings/presentation/view/settings_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final indexBottomNavbarProvider = StateProvider<int>((ref) {
   return 0;

@@ -1,7 +1,7 @@
 
 import 'package:bank_off_time/features/profile/presentation/view/widgets/account_info_text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 
 final birthDayProvider = StateProvider<String>((ref) {

@@ -2,7 +2,7 @@ import 'package:bank_off_time/core/data/network/network_api_services.dart';
 import 'package:bank_off_time/features/home/data/models/category.dart';
 import 'package:bank_off_time/features/home/data/repos/home_repo.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final homeViewModel = ChangeNotifierProvider<HomeViewModel>((ref) {
   return HomeViewModel();

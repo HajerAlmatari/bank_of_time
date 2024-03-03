@@ -1,16 +1,23 @@
 import 'package:bank_off_time/core/widgets/custom_button.dart';
-import 'package:bank_off_time/features/profile/features/skills/data/models/models.dart';
+import 'package:bank_off_time/features/home/data/models/category.dart';
 import 'package:bank_off_time/features/profile/features/skills/presentation/view_models/add_skill_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:multi_dropdown/multiselect_dropdown.dart';
 
-class AddSkillView extends ConsumerWidget {
+class AddSkillView extends StatefulHookConsumerWidget {
   const AddSkillView({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ConsumerStatefulWidget> createState() => AddSkillViewState();
+
+}
+
+class AddSkillViewState extends ConsumerState<AddSkillView>{
+
+  @override
+  Widget build(BuildContext context) {
     final viewModel = ref.watch(addSkillViewModel);
 
     return Scaffold(
@@ -20,22 +27,33 @@ class AddSkillView extends ConsumerWidget {
           vertical: 10,
         ),
         child: CustomButton(
-          onTap: (){},
+          onTap: () {
+            if(!viewModel.isBusy){
+              viewModel.addSkills(context);
+
+            }
+          },
           buttonChild: Container(
             alignment: Alignment.center,
-            child: Text(AppLocalizations.of(context)!.add, style: TextStyle(
-
-              fontSize: 16,
-              color: Colors.white,
-              fontWeight: FontWeight.bold
-            ),),
+            child: viewModel.isBusy ? SizedBox(height: 20, width: 20, child: CircularProgressIndicator(color: Colors.white,),): Text(
+              AppLocalizations.of(context)!.add,
+              style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+            ),
           ),
         ),
       ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          child: CustomScrollView(
+          child: viewModel.isLoading
+              ? Center(
+            child: SizedBox(
+              height: 20,
+              width: 20,
+              child: CircularProgressIndicator(),
+            ),
+          )
+              : CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
                 child: Padding(
@@ -85,20 +103,22 @@ class AddSkillView extends ConsumerWidget {
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   height: 50,
-                  child: DropdownButtonFormField<SkillCategory>(
+                  child: DropdownButtonFormField<CategoryModel>(
                     value: viewModel.selectedSkillCategory,
-                    items: viewModel.skillCategory.map((SkillCategory category) {
-                      return DropdownMenuItem<SkillCategory>(
+                    items: viewModel.skillCategory.map((CategoryModel category) {
+                      return DropdownMenuItem<CategoryModel>(
                         value: category,
-                        child: Text(category.name),
+                        child: Text(category.nameEn),
                       );
                     }).toList(),
-                    onChanged: (SkillCategory? item) {
+                    onChanged: (CategoryModel? item) {
                       viewModel.selectedSkillCategory = item;
+                      setState(() {});
                     },
                     decoration: InputDecoration(
                         contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-                        border: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).primaryColor))),
+                        border:
+                        OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).primaryColor))),
                   ),
                 ),
               ),
@@ -107,7 +127,9 @@ class AddSkillView extends ConsumerWidget {
                   height: 16,
                 ),
               ),
-              const SliverToBoxAdapter(
+              if(viewModel.selectedSkillCategory?.skills?.isNotEmpty??false)
+
+                const SliverToBoxAdapter(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   child: Text(
@@ -118,20 +140,24 @@ class AddSkillView extends ConsumerWidget {
                   ),
                 ),
               ),
-              const SliverToBoxAdapter(
+              if(viewModel.selectedSkillCategory?.skills?.isNotEmpty??false)
+
+                const SliverToBoxAdapter(
                 child: SizedBox(
                   height: 8,
                 ),
               ),
+              if(viewModel.selectedSkillCategory?.skills?.isNotEmpty??false)
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: MultiSelectDropDown<SkillItem>(
-                    options: viewModel.skillItems.map((e) => ValueItem<SkillItem>(label: e.name, value: e)).toList(),
+                  child: MultiSelectDropDown<CategoryModel>(
+                    options: viewModel.selectedSkillCategory!.skills
+                        !.map((e) => ValueItem<CategoryModel>(label: e.nameEn, value: e))
+                        .toList(),
                     onOptionSelected: (list) {
                       viewModel.selectedSkillItems = list.map((e) => e.value).toList();
                     },
-
                     inputDecoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(6),
                       border: Border.all(color: Theme.of(context).primaryColor),
@@ -145,4 +171,5 @@ class AddSkillView extends ConsumerWidget {
       ),
     );
   }
+
 }
