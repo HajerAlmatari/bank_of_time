@@ -21,6 +21,7 @@ class MainProvider extends ChangeNotifier{
     notifyListeners();
   }
 
+  bool get isArabic => locale == const Locale("ar");
   void setLocale()async{
     String value = selectedOption == 1 ? "ar" : "en";
     locale = Locale(value);

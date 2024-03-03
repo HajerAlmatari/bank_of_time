@@ -1,24 +1,23 @@
-import 'package:bank_off_time/features/home/sections/presentation/views/section_categories_view.dart';
+import 'package:bank_off_time/features/home/data/models/category.dart';
+import 'package:bank_off_time/features/home/features/sections/presentation/views/section_categories_view.dart';
+import 'package:bank_off_time/main_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class VolunteerSectionsListViewItem extends StatelessWidget {
-  final String title;
-  final String imageName;
+class VolunteerSectionsListViewItem extends ConsumerWidget {
+  final CategoryModel categoryModel;
 
   const VolunteerSectionsListViewItem({
-    required this.title,
-    required this.imageName,
+    required this.categoryModel,
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    int sectionId = getSectionId(imageName);
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: InkWell(
         onTap: () {
-          print("Clicked");
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -27,26 +26,27 @@ class VolunteerSectionsListViewItem extends StatelessWidget {
               clipBehavior: Clip.antiAliasWithSaveLayer,
               child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SectionCategoriesView(
-                        pageTitle: title,
-                        sectionId:
-                        sectionId,
+                  if(categoryModel.hasSkills){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SectionCategoriesView(
+                          categoryModel: categoryModel,
+                        ),
                       ),
-                    ),
-                  );
+                    );
+
+                  }
                 },
                 child: Image.asset(
-                  imageName,
+                  categoryModel.imgPath,
                   height: 150,
                   fit: BoxFit.cover,
                 ),
               ),
             ),
             Text(
-              title,
+              ref.watch(mainProvider).isArabic ?  categoryModel.nameAr: categoryModel.nameEn,
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           ],

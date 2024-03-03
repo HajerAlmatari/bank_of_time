@@ -1,14 +1,18 @@
 import 'package:bank_off_time/core/widgets/custom_app_bar.dart';
 import 'package:bank_off_time/features/home/presentation/view/widgets/home_search_bar.dart';
 import 'package:bank_off_time/features/home/presentation/view/widgets/volunteer_sections_list_view.dart';
+import 'package:bank_off_time/features/home/presentation/view_models/home_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
-class HomeView extends StatelessWidget {
+class HomeView extends ConsumerWidget {
   const HomeView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+
+    final viewModel = ref.watch(homeViewModel);
 
     return   Scaffold(
       body: SafeArea(
@@ -25,7 +29,9 @@ class HomeView extends StatelessWidget {
                 ),
               ),
               const SliverToBoxAdapter(child: SizedBox(height: 20,)),
-              VolunteerSections(),
+              VolunteerSections(
+                viewModel: viewModel,
+              ),
             ],
           ),
         ),

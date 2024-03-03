@@ -1,19 +1,19 @@
-import 'package:bank_off_time/features/home/sections/features/section_details/presentation/views/section_category_details_view.dart';
+import 'package:bank_off_time/features/home/data/models/category.dart';
+import 'package:bank_off_time/features/home/features/sections/features/section_details/presentation/views/section_category_details_view.dart';
+import 'package:bank_off_time/main_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
-class SectionCategoriesListViewItem extends StatelessWidget {
-  final String title;
-  final String imageName;
-
+class SectionCategoriesListViewItem extends ConsumerWidget {
+  final CategoryModel categoryModel;
   const SectionCategoriesListViewItem({
-    required this.title,
-    required this.imageName,
+    required this.categoryModel,
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: InkWell(
@@ -28,17 +28,17 @@ class SectionCategoriesListViewItem extends StatelessWidget {
               child: InkWell(
                 onTap: () {
                   // Handle the tap on the image if needed
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => SectionCategoryDetailsView(title: title,)));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SectionCategoryDetailsView(title: categoryModel.nameAr,)));
                 },
                 child: Image.asset(
-                  imageName,
+                  categoryModel.imgPath,
                   height: 150,
                   fit: BoxFit.cover,
                 ),
               ),
             ),
             Text(
-              title,
+              ref.watch(mainProvider).isArabic ?  categoryModel.nameAr : categoryModel.nameEn,
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           ],

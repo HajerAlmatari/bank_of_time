@@ -62,8 +62,6 @@ class AuthRepository{
 
       if(e is DioException){
         // ToastUtil.showError("Wrong Email or Password", context);
-        // print("the error is $e");
-        // print("the error response is ${e.response}");
         Response? response = e.response;
         final BaseResponseModel errorModel = baseResponseModelFromJson(response!.data);
         //

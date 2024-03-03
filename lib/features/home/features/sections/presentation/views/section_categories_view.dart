@@ -1,18 +1,21 @@
-import 'package:bank_off_time/features/home/sections/presentation/views/widgets/section_categories_list_view.dart';
+import 'package:bank_off_time/features/home/data/models/category.dart';
+import 'package:bank_off_time/features/home/features/sections/presentation/views/widgets/section_categories_list_view.dart';
+import 'package:bank_off_time/main_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../presentation/view/widgets/home_search_bar.dart';
+import '../../../../presentation/view/widgets/home_search_bar.dart';
 
-class SectionCategoriesView extends StatelessWidget {
-  final String pageTitle;
-  final int sectionId;
+class SectionCategoriesView extends ConsumerWidget {
+  final CategoryModel categoryModel;
 
   const SectionCategoriesView(
-      {Key? key, required this.pageTitle, required this.sectionId})
+      {Key? key, required this.categoryModel})
       : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -20,7 +23,7 @@ class SectionCategoriesView extends StatelessWidget {
           child: CustomScrollView(
             slivers: [
               SliverAppBar(
-                title: Text(pageTitle),
+                title: Text(ref.watch(mainProvider).isArabic ?  categoryModel.nameAr : categoryModel.nameEn),
                 centerTitle: true,
                 pinned: true,
                 expandedHeight: 100.0,
@@ -33,7 +36,7 @@ class SectionCategoriesView extends StatelessWidget {
               ),
               const SliverToBoxAdapter(child: SizedBox(height: 20)),
               SectionCategories(
-                sectionId: sectionId,
+                list: categoryModel.skills??[],
               ),
             ],
           ),
