@@ -20,13 +20,13 @@ class CustomBottomNavItem extends StatelessWidget {
     return Stack(
       children: [
         SizedBox(
-          width: screenWidth * .2950,
+          width: screenWidth * .2250,
           child: Center(
             child: AnimatedContainer(
               duration: const Duration(seconds: 1),
               curve: Curves.fastLinearToSlowEaseIn,
               height: index == currentIndex ? screenWidth * .10 : 0,
-              width: index == currentIndex ? screenWidth * .2125 : 0,
+              width: index == currentIndex ? screenWidth * .1425 : 0,
               decoration: BoxDecoration(
                 color: index == currentIndex
                     ? Theme.of(context).colorScheme.primary.withOpacity(.2)
@@ -37,7 +37,7 @@ class CustomBottomNavItem extends StatelessWidget {
           ),
         ),
         Container(
-          width: screenWidth * .2950,
+          width: screenWidth * .2250,
           alignment: Alignment.center,
           child: Icon(
             iconData,
