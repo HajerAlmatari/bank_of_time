@@ -1,5 +1,6 @@
 import 'package:bank_off_time/core/utils/extensions/string_ex.dart';
 import 'package:bank_off_time/features/auth/data/models/user_model.dart';
+import 'package:bank_off_time/features/conversations/features/chat/presentations/view/chat_view.dart';
 import 'package:flutter/material.dart';
 
 class UserItemCard extends StatelessWidget {
@@ -54,12 +55,28 @@ class UserItemCard extends StatelessWidget {
                 const SizedBox(
                   height: 2,
                 ),
-                Text(user.email,
-                  style: const TextStyle( fontSize: 12),
-
-
+                Text(
+                  user.email,
+                  style: const TextStyle(fontSize: 12),
                 ),
               ],
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ChatView(
+                    receiverUserEmail: user.email,
+                    receiverUserID: user.id.toString(),
+                  ),
+                ),
+              );
+            },
+            child: Icon(
+              Icons.message,
+              color: Theme.of(context).colorScheme.primary,
             ),
           )
         ],

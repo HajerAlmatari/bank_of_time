@@ -7,10 +7,10 @@ import 'package:bank_off_time/features/home/data/models/category.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
-class ChatRepository{
+class ConversationsRepository{
 
   final BaseApiServices _apiServices;
-  ChatRepository(this._apiServices);
+  ConversationsRepository(this._apiServices);
 
 
 

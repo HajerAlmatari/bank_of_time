@@ -1,19 +1,17 @@
 import 'package:bank_off_time/core/data/network/network_api_services.dart';
-import 'package:bank_off_time/features/chat/data/repos/chat_repo.dart';
-import 'package:bank_off_time/features/home/data/models/category.dart';
-import 'package:bank_off_time/features/home/data/repos/home_repo.dart';
+import 'package:bank_off_time/features/conversations/data/repos/conversations_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final chatViewModel = ChangeNotifierProvider<ChatViewModel>((ref) {
-  return ChatViewModel();
+final conversationsViewModel = ChangeNotifierProvider<ConversationsViewModel>((ref) {
+  return ConversationsViewModel();
 });
 
 
-class ChatViewModel with ChangeNotifier{
+class ConversationsViewModel with ChangeNotifier{
 
-  final ChatRepository _homeRepository = ChatRepository(NetworkApiServices());
-  ChatViewModel(){
+  final ConversationsRepository _homeRepository = ConversationsRepository(NetworkApiServices());
+  ConversationsViewModel(){
     init();
   }
 

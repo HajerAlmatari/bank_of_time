@@ -1,4 +1,4 @@
-import 'package:bank_off_time/features/chat/presentaions/views/chat_view.dart';
+import 'package:bank_off_time/features/conversations/presentaions/views/conversations_view.dart';
 import 'package:bank_off_time/features/home/presentation/view/home_view.dart';
 import 'package:bank_off_time/features/main/presentation/view/widgets/custom_bottom_nav_item.dart';
 import 'package:bank_off_time/features/profile/presentation/view/profile_view.dart';
@@ -15,7 +15,7 @@ class MainView extends ConsumerWidget {
     const ProfileView(),
     const HomeView(),
     const SettingsView(),
-    const ChatView(),
+    const ConversationsView(),
   ];
   MainView({super.key});
 

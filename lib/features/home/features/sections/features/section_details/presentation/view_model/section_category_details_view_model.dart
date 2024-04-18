@@ -1,4 +1,5 @@
 import 'package:bank_off_time/core/data/network/network_api_services.dart';
+import 'package:bank_off_time/core/providers/session_provider.dart';
 import 'package:bank_off_time/features/auth/data/models/user_model.dart';
 import 'package:bank_off_time/features/profile/features/skills/data/repos/skills_repo.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,7 @@ class SectionCategoryDetailsViewModel with ChangeNotifier{
     final result = await _skillsRepo.allUsersOfSpecificSkill(skillId);
 
     if(result != null){
+      result.removeWhere((element) => element.id == ref.watch(sessionProvider).authUser!.id);
       userList = result;
     }
 
