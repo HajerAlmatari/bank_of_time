@@ -92,7 +92,7 @@ class AddSkillViewModel with ChangeNotifier{
 
 
     final data = {
-      "person_id" : 1,
+      "person_id" : ref.watch(sessionProvider).authUser?.id,
       "skill_ids" : _selectedSkillItems.map((e) => e?.id).toList(),
     };
 

@@ -20,7 +20,11 @@ class _ChatViewState extends ConsumerState<ChatView> {
 
   void sendMessage(ChatService chatService) async {
     if (_messageController.text.isNotEmpty) {
-      await chatService.sendMessage(widget.receiverUserID, _messageController.text);
+      await chatService.sendMessage(
+        message: _messageController.text ,
+        receiverEmail: widget.receiverUserEmail,
+        receiverId: widget.receiverUserID,
+      );
       scrollToTheBottom();
       _messageController.clear();
     }

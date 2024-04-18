@@ -12,7 +12,7 @@ class ChatService extends ChangeNotifier {
   ChatService(this.ref);
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<void> sendMessage(String receiverId, String message) async {
+  Future<void> sendMessage({required String receiverId, required String receiverEmail, required String message}) async {
     final String currentUserId = ref.watch(sessionProvider).authUser!.id.toString();
     final String currentUserEmail = ref.watch(sessionProvider).authUser!.email;
     final Timestamp timestamp = Timestamp.now();
@@ -34,6 +34,18 @@ class ChatService extends ChangeNotifier {
         .doc(chatRoomId)
         .collection('messages')
         .add(messageToSend.toMap());
+
+    await _firestore
+        .collection('chat_rooms')
+        .doc(chatRoomId)
+        .set({'email' : receiverEmail, 'receiverId' : receiverId});
+
+
+    // await _firestore
+    //     .collection('chat_rooms')
+    //     .doc(chatRoomId)
+    //     .set({});
+
   }
 
   Stream<QuerySnapshot> getMessages(String userId, String otherId){
