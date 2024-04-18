@@ -2,9 +2,10 @@ import 'package:bank_off_time/features/home/features/sections/features/section_d
 import 'package:flutter/material.dart';
 
 class SectionCategoryDetailsView extends StatelessWidget {
-  const SectionCategoryDetailsView({super.key, required this.title});
+  const SectionCategoryDetailsView({super.key, required this.title, required this.skillId});
 
   final String title;
+  final int skillId;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class SectionCategoryDetailsView extends StatelessWidget {
               pinned: true,
               expandedHeight: 50.0,
             ),
-            const UsersList(),
+            UsersList(skillId: skillId,),
           ],
         ),
       ),

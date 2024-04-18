@@ -86,5 +86,33 @@ class SkillsRepo{
     }
   }
 
+  Future<List<User>?>? allUsersOfSpecificSkill(int skillId)async{
+
+    try{
+      Response? response = await _apiServices.getGetApiResponse(AppUrls.allUsersOfSpecificSkill(skillId: skillId));
+      final baseResponseModel = baseResponseModelFromJson(response!.data);
+
+      if( baseResponseModel.code == 200){
+
+        final List list = baseResponseModel.data as List;
+
+        return list.map((e) => User.fromMap(e)).toList();
+      }
+
+
+      return null;
+    }catch(e){
+
+
+      if(e is DioException){
+        Response? response = e.response;
+        final BaseResponseModel errorModel = baseResponseModelFromJson(response!.data);
+        //
+      }
+      rethrow;
+    }
+  }
+
+
 
 }
