@@ -44,6 +44,7 @@ class UsersList extends ConsumerWidget {
             (context, index) {
               return UserItemCard(
                 user: viewModel.userList[index],
+                skillId: skillId,
               );
             },
           ),

@@ -65,11 +65,8 @@ class _ChatViewState extends ConsumerState<ChatView> {
   Widget _buildMessageItem(DocumentSnapshot documentSnapshot) {
     Map<String, dynamic> data = documentSnapshot.data() as Map<String, dynamic>;
 
-    final currentUser = (data['senderId'] == ref.watch(sessionProvider).authUser!.id);
+    final currentUser = data['senderId'] == ref.watch(sessionProvider).authUser!.id.toString();
     final alignment = currentUser ? Alignment.centerRight : Alignment.centerLeft;
-
-    print("data user id ${data['senderId']}");
-    print("is current user $currentUser");
 
     Timestamp timestamp = data['timestamp'];
     DateTime dateTime = timestamp.toDate();
@@ -81,7 +78,7 @@ class _ChatViewState extends ConsumerState<ChatView> {
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 5),
         decoration: BoxDecoration(
-          color: currentUser ? Colors.black : Colors.grey,
+          color: currentUser ? Theme.of(context).primaryColor : Colors.grey,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(currentUser ? 8 : 0),
             bottomRight: Radius.circular(currentUser ? 0 : 8),

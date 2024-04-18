@@ -3,7 +3,7 @@ import 'package:bank_off_time/features/conversations/data/repos/conversations_re
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final conversationsViewModel = ChangeNotifierProvider<ConversationsViewModel>((ref) {
+final conversationsViewModel = ChangeNotifierProvider.autoDispose<ConversationsViewModel>((ref) {
   return ConversationsViewModel();
 });
 
