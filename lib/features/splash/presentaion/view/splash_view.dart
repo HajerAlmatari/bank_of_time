@@ -5,16 +5,16 @@ import 'package:bank_off_time/features/main/presentation/view/main_view.dart';
 import 'package:bank_off_time/features/splash/presentaion/view/widgets/app_logo.dart';
 import 'package:bank_off_time/features/splash/presentaion/view/widgets/page_transtion.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class SplashView extends StatefulWidget {
+class SplashView extends ConsumerStatefulWidget {
   const SplashView({super.key});
 
   @override
   SplashViewState createState() => SplashViewState();
 }
 
-class SplashViewState extends State<SplashView> with TickerProviderStateMixin {
+class SplashViewState extends ConsumerState<SplashView> with TickerProviderStateMixin {
   double _fontSize = 2;
   double _containerSize = 1.5;
   double _textOpacity = 0.0;
@@ -54,7 +54,7 @@ class SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
     Timer(const Duration(seconds: 4), () {
       setState(() {
-        if(Provider.of<SessionProvider>(context, listen: false).isLoggedIn){
+        if(ref.watch(sessionProvider).isLoggedIn){
           Navigator.pushReplacement(context, PageTransition(MainView()));
         }else{
           Navigator.pushReplacement(context, PageTransition(const LoginView()));

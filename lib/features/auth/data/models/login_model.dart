@@ -45,12 +45,12 @@ class Auth {
   });
 
   factory Auth.fromJson(Map<String, dynamic> json) => Auth(
-    user: User.fromJson(json["user"]),
+    user: User.fromMap(json["user"]),
     authorization: Authorization.fromJson(json["authorization"]),
   );
 
   Map<String, dynamic> toJson() => {
-    "user": user.toJson(),
+    "user": user.toMap(),
     "authorization": authorization.toJson(),
   };
 }

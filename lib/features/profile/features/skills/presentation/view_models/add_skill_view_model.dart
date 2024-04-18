@@ -5,7 +5,6 @@ import 'package:bank_off_time/features/home/data/models/category.dart';
 import 'package:bank_off_time/features/profile/features/skills/data/repos/skills_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:provider/provider.dart' as p;
 
 
 final addSkillViewModel = ChangeNotifierProvider.autoDispose<AddSkillViewModel>((ref) {

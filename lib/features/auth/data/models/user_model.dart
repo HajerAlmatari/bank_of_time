@@ -1,8 +1,10 @@
 import 'dart:convert';
 
-User userFromJson(String str) => User.fromJson(json.decode(str));
+import 'package:bank_off_time/core/models/skill_model.dart';
 
-String userToJson(User data) => json.encode(data.toJson());
+User userFromJson(String str) => User.fromMap(json.decode(str));
+
+String userToJson(User data) => json.encode(data.toMap());
 
 class User {
   int id;
@@ -10,6 +12,7 @@ class User {
   String email;
   String username;
   String? password;
+  List<Skill>? skills;
 
   User({
     required this.id,
@@ -17,21 +20,32 @@ class User {
     required this.email,
     required this.username,
     this.password,
+    this.skills,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) => User(
-    id: json["id"],
-    name: json["name"],
-    email: json["email"],
-    username: json["username"],
-    password: json["password"],
-  );
+  factory User.fromMap(Map<String, dynamic> map) {
 
-  Map<String, dynamic> toJson() => {
+    List<Skill> userSkills = [];
+
+    if(map.containsKey("skills")){
+      userSkills = List<Skill>.from(map["skills"].map((x) => Skill.fromMap(x)));
+    }
+    return User(
+      id: map["id"],
+      name: map["name"],
+      email: map["email"],
+      username: map["username"],
+      password: map["password"],
+      skills: userSkills,
+    );
+  }
+
+  Map<String, dynamic> toMap() => {
     "id": id,
     "name": name,
     "email": email,
     "username": username,
     "password": password,
+    "skills": List<dynamic>.from(skills?.map((x) => x.toMap())??[]),
   };
 }
