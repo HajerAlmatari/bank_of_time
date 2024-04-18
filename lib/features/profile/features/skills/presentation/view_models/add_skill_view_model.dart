@@ -97,7 +97,6 @@ class AddSkillViewModel with ChangeNotifier{
       "skill_ids" : _selectedSkillItems.map((e) => e?.id).toList(),
     };
 
-    print("data is ${data}");
     isBusy = true;
     final result = await _myRepo.addSkills(data);
 

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "976656679083",
+    "project_id": "bank-of-time-4e20c",
+    "storage_bucket": "bank-of-time-4e20c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:976656679083:android:e5d09e54f1655c1fafb7ee",
+        "android_client_info": {
+          "package_name": "com.example.bank_off_time"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC18uUWeS-WwhKeCeFP8PvtJyAGQAR2fIA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
