@@ -33,18 +33,6 @@ class _OrderViewState extends ConsumerState<OrderView> {
     );
   }
 
-  final textEditingControllers = (
-    dateController: TextEditingController(),
-    priceController: TextEditingController(),
-  );
-
-  final focusNodes = (
-    dateFocusNode: FocusNode(),
-    priceFocusNode: FocusNode(),
-  );
-
-  final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     final viewModel = ref.watch(orderViewModel(orderModel));
@@ -58,33 +46,33 @@ class _OrderViewState extends ConsumerState<OrderView> {
       ),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
       child: Form(
-        key: _formKey,
+        key: viewModel.formKey,
         child: ListView(
           physics: const ClampingScrollPhysics(),
           shrinkWrap: true,
           children: [
             CustomTextFormField(
               hintText: "Date",
-              inputController: textEditingControllers.dateController,
+              inputController: viewModel.textEditingControllers.dateController,
               readOnly: true,
               onTap: () async {
                 final result =
                     await showDatePicker(context: context, firstDate: DateTime.now(), lastDate: DateTime(3000));
 
                 if (result != null) {
-                  textEditingControllers.dateController.text = DateFormat('yyyy-MM-dd').format(result);
+                  viewModel.textEditingControllers.dateController.text = DateFormat('yyyy-MM-dd').format(result);
                 }
               },
             ),
             const SizedBox(height: 16),
             CustomTextFormField(
               hintText: "Price",
-              inputController: textEditingControllers.priceController,
+              inputController: viewModel.textEditingControllers.priceController,
               inputType: TextInputType.number,
             ),
             const SizedBox(height: 32),
             CustomButton(
-              buttonChild: false
+              buttonChild: viewModel.isLoading
                   ? const Center(
                       child: SizedBox(
                         height: 20,
@@ -100,7 +88,9 @@ class _OrderViewState extends ConsumerState<OrderView> {
                       style: TextStyle(color: Colors.white),
                     ),
               onTap: () {
-                if (_formKey.currentState!.validate()) {}
+                if (viewModel.formKey.currentState!.validate()) {
+                  viewModel.sendOrder(context);
+                }
               },
             ),
           ],

@@ -13,15 +13,15 @@ class OrderModel {
     required this.skillId,
   });
 
-  factory OrderModel.fromJson(Map<String, dynamic> json) => OrderModel(
-    providerId: json["provider_id"],
-    requesterId: json["requester_id"],
-    date: json["date"],
-    price: json["price"]?.toDouble(),
-    skillId: json["skill_id"],
+  factory OrderModel.fromMap(Map<String, dynamic> map) => OrderModel(
+    providerId: map["provider_id"],
+    requesterId: map["requester_id"],
+    date: map["date"],
+    price: map["price"]?.toDouble(),
+    skillId: map["skill_id"],
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
     "provider_id": providerId,
     "requester_id": requesterId,
     "date": date,
