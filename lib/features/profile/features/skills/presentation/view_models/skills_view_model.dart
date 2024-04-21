@@ -24,6 +24,13 @@ class SkillsViewModel with ChangeNotifier{
     isLoading = false;
   }
 
+
+  Future refresh()async{
+    isLoading = true;
+    await getData();
+    isLoading = false;
+  }
+
   Future getData()async{
 
     final result = await _skillsRepo.userWithSkills(ref.watch(sessionProvider).authUser!.id);

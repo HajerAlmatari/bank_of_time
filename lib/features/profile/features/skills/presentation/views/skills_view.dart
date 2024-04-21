@@ -42,9 +42,13 @@ class SkillsView extends ConsumerWidget {
                         style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       InkWell(
-                        onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => const AddSkillView()));
-                        },
+                        onTap: () async{
+                          final result = await Navigator.push(context, MaterialPageRoute(builder: (context) => const AddSkillView()));
+
+                          if(result){
+                            viewModel.refresh();
+                          }
+                          },
                         borderRadius: BorderRadius.circular(12),
                         child: Container(
                           padding: const EdgeInsets.symmetric(
@@ -77,30 +81,34 @@ class SkillsView extends ConsumerWidget {
                   height: 16,
                 ),
               ),
-              SliverToBoxAdapter(
-                child: Builder(
-                  builder: (context) {
+              SliverLayoutBuilder(
+                builder: (context, constraint) {
 
 
-                    if(viewModel.isLoading){
-                      return Center(
+                  if(viewModel.isLoading){
+                    return SliverFillRemaining(
+                      child: Center(
                         child: SizedBox(
                           height: 20,
                           width: 20,
                           child: CircularProgressIndicator(),
                         ),
-                      );
-                    }
+                      ),
+                    );
+                  }
 
-                    if(viewModel.skillsList.isEmpty){
-                      return Center(
+                  if(viewModel.skillsList.isEmpty){
+                    return SliverFillRemaining(
+                      child: Center(
                         child: Text(
                             "No Data"
                         ),
-                      );
-                    }
+                      ),
+                    );
+                  }
 
-                    return Column(
+                  return SliverToBoxAdapter(
+                    child: Column(
                       children: [
                         ...viewModel.skillsList.map((e) {
                           return Padding(
@@ -123,40 +131,40 @@ class SkillsView extends ConsumerWidget {
                           );
                         })
                       ],
-                    );
+                    ),
+                  );
 
-                      /*
-                      SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        childCount: viewModel.skillsList.length,
-                        (context, index) {
+                    /*
+                    SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      childCount: viewModel.skillsList.length,
+                      (context, index) {
 
-                          final item = viewModel.skillsList[index];
-                          return Padding(
+                        final item = viewModel.skillsList[index];
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 8,
+                          ),
+                          child: Container(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 12,
-                              vertical: 8,
+                              vertical: 12,
                             ),
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                                vertical: 12,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Theme.of(context).primaryColor.withOpacity(0.05),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Text(ref.watch(mainProvider).isArabic ? item.nameAr : item.nameEn),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).primaryColor.withOpacity(0.05),
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                          );
-                        },
-                      ),
-                    );
+                            child: Text(ref.watch(mainProvider).isArabic ? item.nameAr : item.nameEn),
+                          ),
+                        );
+                      },
+                    ),
+                  );
 
 
-                       */
-                  }
-                ),
+                     */
+                }
               ),
             ],
           ),

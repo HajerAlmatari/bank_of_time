@@ -26,6 +26,12 @@ class RequestsViewModel with ChangeNotifier{
     isLoading = false;
   }
 
+  Future refresh()async{
+    isLoading = true;
+    await getData();
+    isLoading = false;
+  }
+
   Future getData()async{
 
     final result = await _myRepo.getAllRequests(userId : ref.watch(sessionProvider).authUser!.id);

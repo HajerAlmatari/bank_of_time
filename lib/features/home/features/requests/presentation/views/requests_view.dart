@@ -1,8 +1,10 @@
+import 'package:bank_off_time/core/widgets/custom_button.dart';
 import 'package:bank_off_time/features/home/features/requests/presentation/view_models/requests_view_model.dart';
-import 'package:bank_off_time/main_provider.dart';
+import 'package:bank_off_time/features/home/features/requests/presentation/views/modals/confirm_request_modal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:intl/intl.dart';
 
 class RequestsView extends ConsumerWidget {
   const RequestsView({super.key});
@@ -21,12 +23,12 @@ class RequestsView extends ConsumerWidget {
                   height: 30,
                 ),
               ),
-              SliverToBoxAdapter(
+              const SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                  child:  Text(
-                    AppLocalizations.of(context)!.skills,
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  padding: EdgeInsets.symmetric(horizontal: 12.0),
+                  child: Text(
+                    "Requests",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -35,32 +37,33 @@ class RequestsView extends ConsumerWidget {
                   height: 16,
                 ),
               ),
-              SliverToBoxAdapter(
-                child: Builder(
-                    builder: (context) {
+              SliverLayoutBuilder(
+                builder: (context, c) {
+                  if (viewModel.isLoading) {
+                    return const SliverFillRemaining(
+                      child: Center(
+                        child: SizedBox(
+                          height: 20,
+                          width: 20,
+                          child: CircularProgressIndicator(),
+                        ),
+                      ),
+                    );
+                  }
 
+                  if (viewModel.requestsList.isEmpty) {
+                    return const SliverFillRemaining(
+                      child: Center(
+                        child: Text("No Data"),
+                      ),
+                    );
+                  }
 
-                      if(viewModel.isLoading){
-                        return Center(
-                          child: SizedBox(
-                            height: 20,
-                            width: 20,
-                            child: CircularProgressIndicator(),
-                          ),
-                        );
-                      }
-
-                      if(viewModel.requestsList.isEmpty){
-                        return Center(
-                          child: Text(
-                              "No Data"
-                          ),
-                        );
-                      }
-
-                      return Column(
-                        children: [
-                          ...viewModel.requestsList.map((e) {
+                  return SliverToBoxAdapter(
+                    child: Column(
+                      children: [
+                        ...viewModel.requestsList.map(
+                          (request) {
                             return Padding(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 12,
@@ -73,56 +76,62 @@ class RequestsView extends ConsumerWidget {
                                   vertical: 12,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: e.isPending ? Colors.amber.withOpacity(0.1) : Theme.of(context).primaryColor.withOpacity(0.05),
+                                  color: request.isPending
+                                      ? Colors.amber.withOpacity(0.1)
+                                      : Theme.of(context).primaryColor.withOpacity(0.05),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Text("Date : ${e.date}"),
-                                    const SizedBox(height: 10,),
-                                    Text("Price : ${e.price}"),
+                                    Expanded(
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text("Date : ${DateFormat("yyyy-MM-dd").format(request.date)}"),
+                                          const SizedBox(
+                                            height: 10,
+                                          ),
+                                          Text("Price : ${request.price}"),
+                                        ],
+                                      ),
+                                    ),
+                                    if (request.isPending)
+                                      CustomButton(
+                                        onTap: () async{
+                                          final result = await showModalBottomSheet(
+                                            context: context,
+                                            backgroundColor: Colors.transparent,
+                                            builder: (context) {
+                                              return ConfirmRequestModal(request: request);
+                                            },
+                                          );
+
+                                          if(result){
+                                            viewModel.refresh();
+                                          }
+                                        },
+                                        buttonChild: const Text(
+                                          "Accept",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        borderRadius: 10,
+                                        backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(.5),
+                                        height: 35,
+                                      ),
                                   ],
                                 ),
                               ),
                             );
-                          })
-                        ],
-                      );
-
-                      /*
-                      SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        childCount: viewModel.skillsList.length,
-                        (context, index) {
-
-                          final item = viewModel.skillsList[index];
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 12,
-                              vertical: 8,
-                            ),
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                                vertical: 12,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Theme.of(context).primaryColor.withOpacity(0.05),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Text(ref.watch(mainProvider).isArabic ? item.nameAr : item.nameEn),
-                            ),
-                          );
-                        },
-                      ),
-                    );
-
-
-                       */
-                    }
-                ),
+                          },
+                        ),
+                      ],
+                    ),
+                  );
+                },
               ),
             ],
           ),

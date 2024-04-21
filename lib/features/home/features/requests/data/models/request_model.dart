@@ -45,5 +45,16 @@ class RequestModel {
     "status": status,
   };
 
+
+  Map<String, dynamic> toAcceptRequest() => {
+    "id": id,
+    "provider_id": providerId,
+    "requester_id": requesterId,
+    "date": "${date.year.toString().padLeft(4, '0')}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}",
+    "price": price,
+    "skill_id": skillId,
+    "status": 1,
+  };
+
   bool get isPending => status == 0;
 }

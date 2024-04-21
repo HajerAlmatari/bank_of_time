@@ -104,7 +104,7 @@ class AddSkillViewModel with ChangeNotifier{
     print("result is $result");
 
     if(result){
-      Navigator.pop(context);
+      Navigator.pop(context, true);
       ToastUtil.showSuccess("Added Success", context);
     }
 
