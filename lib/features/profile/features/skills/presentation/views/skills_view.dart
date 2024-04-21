@@ -45,7 +45,7 @@ class SkillsView extends ConsumerWidget {
                         onTap: () async{
                           final result = await Navigator.push(context, MaterialPageRoute(builder: (context) => const AddSkillView()));
 
-                          if(result){
+                          if(result??false){
                             viewModel.refresh();
                           }
                           },

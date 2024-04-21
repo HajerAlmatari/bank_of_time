@@ -51,8 +51,8 @@ class AddSkillViewModel with ChangeNotifier{
   CategoryModel? get selectedSkillCategory => _selectedSkillCategory;
    set selectedSkillCategory (CategoryModel? value){
      _selectedSkillCategory = value;
-     _selectedSkillItems.clear();
-     skillItems = List.from(value?.skills??[]);
+     selectedSkillItems.clear();
+     _skillItems = List.from(value?.skills??[]);
      notifyListeners();
    }
 
@@ -67,9 +67,9 @@ class AddSkillViewModel with ChangeNotifier{
   }
 
 
-  List<CategoryModel?> _selectedSkillItems = [];
-  List<CategoryModel?> get selectedSkillItems => _selectedSkillItems;
-  set selectedSkillItems (List<CategoryModel?> value){
+  List<CategoryModel> _selectedSkillItems = [];
+  List<CategoryModel> get selectedSkillItems => _selectedSkillItems;
+  set selectedSkillItems (List<CategoryModel> value){
     _selectedSkillItems = value;
     notifyListeners();
   }

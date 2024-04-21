@@ -261,14 +261,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.10"
-  http:
-    dependency: transitive
-    description:
-      name: http
-      sha256: "759d1a329847dd0f39226c688d3e06a6b8679668e350e2891a6474f8b4bb8525"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.0"
   http_parser:
     dependency: transitive
     description:
@@ -349,14 +341,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.0"
-  multi_dropdown:
+  multiselect:
     dependency: "direct main"
     description:
-      name: multi_dropdown
-      sha256: b63ff339fcc875d667f8688c8ef62853545b580dd2b6fe78b73339783268afd8
+      name: multiselect
+      sha256: "8d0c4a7b89bee6c5e5e4a25ecba68c796dafc1917492d5606f0caa3947d5905a"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.4"
+    version: "0.1.0"
+  navigation_builder:
+    dependency: transitive
+    description:
+      name: navigation_builder
+      sha256: d1b145dde5869849613d9b93ecd8f5a3ae929471ef81d1ba017f476b70bd7c39
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.4"
   nm:
     dependency: transitive
     description:
@@ -514,6 +514,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  states_rebuilder:
+    dependency: transitive
+    description:
+      name: states_rebuilder
+      sha256: f760498bb7adbe12d0d6da67f23c07e6c41de6261052ba8794356222fe27ddf3
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.4.0"
   stream_channel:
     dependency: transitive
     description:
