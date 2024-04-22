@@ -3,7 +3,7 @@ class Skill {
   String nameEn;
   String nameAr;
   String? imgPath;
-  Category? category;
+  dynamic category;
 
   Skill({
     this.id,
@@ -15,10 +15,15 @@ class Skill {
 
   factory Skill.fromMap(Map<String, dynamic> map) {
 
-    Category? category;
+    dynamic category;
 
     if(map.containsKey("category")){
-      category = Category.fromMap(map["category"]);
+
+      if(map["category"].runtimeType == int){
+        category = map["category"];
+      }else{
+        category = Category.fromMap(map["category"]);
+      }
     }
     return Skill(
       id: map["id"],
