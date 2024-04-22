@@ -134,11 +134,11 @@ class AddSkillViewState extends ConsumerState<AddSkillView> {
                       ),
                     ),
                     if (viewModel.selectedSkillCategory?.skills?.isNotEmpty ?? false)
-                      const SliverToBoxAdapter(
+                      SliverToBoxAdapter(
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 10),
                           child: Text(
-                            "Skills",
+                            AppLocalizations.of(context)!.skills,
                             style: TextStyle(
                               fontSize: 12,
                             ),

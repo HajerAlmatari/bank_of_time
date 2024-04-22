@@ -22,10 +22,10 @@ class OrderModel {
   );
 
   Map<String, dynamic> toMap() => {
-    "provider_id": providerId,
-    "requester_id": requesterId,
+    "provider": providerId,
+    "requester": requesterId,
     "date": date,
     "price": price,
-    "skill_id": skillId,
+    "skill": skillId,
   };
 }

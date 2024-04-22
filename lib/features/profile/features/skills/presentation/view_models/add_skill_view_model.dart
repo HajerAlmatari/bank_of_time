@@ -5,6 +5,7 @@ import 'package:bank_off_time/features/home/data/models/category.dart';
 import 'package:bank_off_time/features/profile/features/skills/data/repos/skills_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 final addSkillViewModel = ChangeNotifierProvider.autoDispose<AddSkillViewModel>((ref) {
@@ -93,7 +94,7 @@ class AddSkillViewModel with ChangeNotifier{
 
     final data = {
       "person_id" : ref.watch(sessionProvider).authUser?.id,
-      "skill_ids" : _selectedSkillItems.map((e) => e?.id).toList(),
+      "skill_ids" : _selectedSkillItems.map((e) => e.id).toList(),
     };
 
     isBusy = true;
@@ -101,11 +102,10 @@ class AddSkillViewModel with ChangeNotifier{
 
     isBusy = false;
 
-    print("result is $result");
 
     if(result){
       Navigator.pop(context, true);
-      ToastUtil.showSuccess("Added Success", context);
+      ToastUtil.showSuccess(                AppLocalizations.of(context)!.added_successfully, context);
     }
 
   }

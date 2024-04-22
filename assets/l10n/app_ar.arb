@@ -47,5 +47,18 @@
     "hello" : "مرحباً, {username}",
     "skills" : "المهارات",
     "add" : "إضافة",
-    "add_new_skill" : "إضافة مهارة جديدة"
+    "add_new_skill" : "إضافة مهارة جديدة",
+    "no_data" : "لا يوجد بيانات",
+    "added_successfully" : "تم الإضافة بنجاح",
+    "order_sent_successfully" : "تم إرسال الطلب بنجاح",
+    "accept" : "موافقة",
+    "cancel" : "رفض",
+    "are_you_sure_you_want_to_approve_this_request" : "هل أنت متأكد أنك تريد الموافقة على هذا الطلب؟",
+    "date" : "التاريخ",
+    "price" : "السعر",
+    "send" : "إرسال",
+    "requests" : "الطلبات",
+    "skill" : "المهارة",
+    "request_accepted_successfully" : "تم الموافقة على الطلب بنجاح",
+    "user_name" : "إسم المستخدم"
 }

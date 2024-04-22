@@ -6,6 +6,7 @@ import 'package:bank_off_time/features/home/features/order/data/models/order_mod
 import 'package:bank_off_time/features/home/features/order/data/repos/order_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 final orderViewModel = ChangeNotifierProvider.autoDispose.family<OrderViewModel ,OrderModel>((ref, orderModel) {
   return  OrderViewModel(ref, orderModel);
@@ -44,7 +45,7 @@ class OrderViewModel with ChangeNotifier {
 
         if(result){
           Navigator.pop(context);
-          ToastUtil.showSuccess("Order Sent Successfully", context);
+          ToastUtil.showSuccess(AppLocalizations.of(context)!.order_sent_successfully, context);
 
         }
 

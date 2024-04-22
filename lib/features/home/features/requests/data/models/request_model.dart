@@ -1,8 +1,11 @@
+import 'package:bank_off_time/core/models/skill_model.dart';
+import 'package:bank_off_time/features/auth/data/models/user_model.dart';
+
 class RequestModel {
   int id;
-  int requesterId;
-  int providerId;
-  int skillId;
+  User requester;
+  User provider;
+  Skill skill;
   dynamic description;
   DateTime createdAt;
   DateTime date;
@@ -11,9 +14,9 @@ class RequestModel {
 
   RequestModel({
     required this.id,
-    required this.requesterId,
-    required this.providerId,
-    required this.skillId,
+    required this.requester,
+    required this.provider,
+    required this.skill,
     required this.description,
     required this.createdAt,
     required this.date,
@@ -23,9 +26,9 @@ class RequestModel {
 
   factory RequestModel.fromMap(Map<String, dynamic> map) => RequestModel(
     id: map["id"],
-    requesterId: map["requester_id"],
-    providerId: map["provider_id"],
-    skillId: map["skill_id"],
+    requester: User.fromMap(map["requester"]),
+    provider: User.fromMap(map["requester"]),
+    skill: Skill.fromMap(map["skill"]),
     description: map["description"],
     createdAt: DateTime.parse(map["created_at"]),
     date: DateTime.parse(map["date"]),
@@ -35,9 +38,9 @@ class RequestModel {
 
   Map<String, dynamic> toJson() => {
     "id": id,
-    "requester_id": requesterId,
-    "provider_id": providerId,
-    "skill_id": skillId,
+    "requester_id": requester,
+    "provider_id": provider,
+    "skill_id": skill,
     "description": description,
     "created_at": createdAt.toIso8601String(),
     "date": "${date.year.toString().padLeft(4, '0')}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}",
@@ -48,11 +51,11 @@ class RequestModel {
 
   Map<String, dynamic> toAcceptRequest() => {
     "id": id,
-    "provider_id": providerId,
-    "requester_id": requesterId,
+    "provider": provider.id,
+    "requester": requester.id,
     "date": "${date.year.toString().padLeft(4, '0')}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}",
     "price": price,
-    "skill_id": skillId,
+    "skill": skill.id,
     "status": 1,
   };
 

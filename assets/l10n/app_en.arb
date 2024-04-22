@@ -111,5 +111,18 @@
     },
     "skills" : "Skills",
     "add" : "Add",
-    "add_new_skill" : "Add new skill"
+    "add_new_skill" : "Add new skill",
+    "no_data" : "No data",
+    "added_successfully" : "Added successfully",
+    "order_sent_successfully" : "Order sent successfully",
+    "accept" : "Accept",
+    "cancel" : "Cancel",
+    "are_you_sure_you_want_to_approve_this_request" : "Are you sure you want to approve this request?",
+    "date" : "Date",
+    "price" : "Price",
+    "send" : "Send",
+    "requests" : "Requests",
+    "skill" : "Skill",
+    "request_accepted_successfully" : "Request accepted successfully",
+    "user_name" : "User name"
 }

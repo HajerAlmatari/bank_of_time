@@ -2,6 +2,7 @@ import 'package:bank_off_time/features/home/features/sections/features/section_d
 import 'package:bank_off_time/features/home/features/sections/features/section_details/presentation/views/widgets/user_item_card.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class UsersList extends ConsumerWidget {
 
@@ -31,7 +32,7 @@ class UsersList extends ConsumerWidget {
           return SliverFillRemaining(
             child: Center(
               child: Text(
-                "No Data"
+                AppLocalizations.of(context)!.no_data,
               ),
             ),
           );

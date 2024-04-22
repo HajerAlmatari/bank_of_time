@@ -1,8 +1,7 @@
 import 'package:bank_off_time/core/data/network/network_api_services.dart';
 import 'package:bank_off_time/core/helpers/network_connectivity.dart';
 import 'package:bank_off_time/core/utils/cherry_toast_util.dart';
-import 'package:bank_off_time/features/auth/data/repos/auth_repo_impl.dart';
-import 'package:bank_off_time/features/home/features/order/data/models/order_model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:bank_off_time/features/home/features/order/data/repos/order_repo.dart';
 import 'package:bank_off_time/features/home/features/requests/data/models/request_model.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +41,7 @@ class ConfirmRequestViewModel with ChangeNotifier {
         _setIsLoading(false);
 
         if(result){
-          ToastUtil.showSuccess("Request Accepted Successfully", context);
+          ToastUtil.showSuccess(AppLocalizations.of(context)!.request_accepted_successfully, context);
           Navigator.pop(context, true);
 
         }

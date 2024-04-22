@@ -2,7 +2,7 @@ import 'package:bank_off_time/core/widgets/custom_button.dart';
 import 'package:bank_off_time/features/home/features/requests/data/models/request_model.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../view_models/confirm_request_view_model.dart';
 
 class ConfirmRequestModal extends ConsumerStatefulWidget {
@@ -31,7 +31,7 @@ class _ConfirmRequestModalState extends ConsumerState<ConfirmRequestModal> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            "Are you sure you want to approve this request?",
+          AppLocalizations.of(context)!.are_you_sure_you_want_to_approve_this_request,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           SizedBox(
@@ -54,7 +54,7 @@ class _ConfirmRequestModalState extends ConsumerState<ConfirmRequestModal> {
                           ),
                         )
                       : Text(
-                          "Accept",
+                    AppLocalizations.of(context)!.accept,
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -72,7 +72,7 @@ class _ConfirmRequestModalState extends ConsumerState<ConfirmRequestModal> {
                   borderRadius: 10,
                   backgroundColor: Colors.grey.withOpacity(.05),
                   buttonChild: Text(
-                    "Cancel",
+                    AppLocalizations.of(context)!.cancel,
                     style: TextStyle(
                       color: Colors.black,
                     ),

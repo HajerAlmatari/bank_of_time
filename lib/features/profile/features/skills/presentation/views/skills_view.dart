@@ -101,7 +101,7 @@ class SkillsView extends ConsumerWidget {
                     return SliverFillRemaining(
                       child: Center(
                         child: Text(
-                            "No Data"
+                          AppLocalizations.of(context)!.no_data,
                         ),
                       ),
                     );

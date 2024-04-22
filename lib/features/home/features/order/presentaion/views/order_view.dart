@@ -2,7 +2,7 @@ import 'package:bank_off_time/features/home/features/order/data/models/order_mod
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../../../../core/widgets/custom_button.dart';
 import '../../../../../../core/widgets/custom_text_form_field.dart';
 import '../view_models/order_view_model.dart';
@@ -52,7 +52,7 @@ class _OrderViewState extends ConsumerState<OrderView> {
           shrinkWrap: true,
           children: [
             CustomTextFormField(
-              hintText: "Date",
+              hintText: AppLocalizations.of(context)!.date,
               inputController: viewModel.textEditingControllers.dateController,
               readOnly: true,
               onTap: () async {
@@ -66,7 +66,7 @@ class _OrderViewState extends ConsumerState<OrderView> {
             ),
             const SizedBox(height: 16),
             CustomTextFormField(
-              hintText: "Price",
+              hintText: AppLocalizations.of(context)!.price,
               inputController: viewModel.textEditingControllers.priceController,
               inputType: TextInputType.number,
             ),
@@ -83,9 +83,9 @@ class _OrderViewState extends ConsumerState<OrderView> {
                         ),
                       ),
                     )
-                  : const Text(
-                      "Send",
-                      style: TextStyle(color: Colors.white),
+                  :  Text(
+                AppLocalizations.of(context)!.send,
+                      style: const TextStyle(color: Colors.white),
                     ),
               onTap: () {
                 if (viewModel.formKey.currentState!.validate()) {
