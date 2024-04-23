@@ -1,10 +1,12 @@
+import 'package:bank_off_time/core/providers/session_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class AccountInfoContainer extends StatelessWidget {
+class AccountInfoContainer extends ConsumerWidget {
   const AccountInfoContainer({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Positioned(
       top: (MediaQuery.of(context).size.height / 3.5) / 2,
       left: MediaQuery.of(context).size.width * .10,
@@ -21,14 +23,14 @@ class AccountInfoContainer extends StatelessWidget {
                 offset: const Offset(0, 10),
               ),
             ]),
-        child: const Padding(
+        child: Padding(
           padding: EdgeInsets.only(top: 80.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               DefaultTextStyle(
                 style: TextStyle(color: Colors.black,fontSize: 17),
-                child: Text("Sara", textAlign: TextAlign.center,),
+                child: Text(ref.watch(sessionProvider).authUser?.name??"User Name", textAlign: TextAlign.center,),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal : 20.0,  vertical : 10.0),

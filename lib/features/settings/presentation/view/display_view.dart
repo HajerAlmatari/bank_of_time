@@ -1,13 +1,15 @@
 import 'dart:math';
 
+import 'package:bank_off_time/core/providers/session_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 
-class DisplayView extends StatelessWidget {
+class DisplayView extends ConsumerWidget {
   const DisplayView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -17,6 +19,7 @@ class DisplayView extends StatelessWidget {
               delegate: WhatsappAppbar(
                   screenWidth: MediaQuery.of(context).size.width,
                   screenHeight: MediaQuery.of(context).size.height,
+                ref: ref
               ),
               pinned: true,
             ),
@@ -38,9 +41,11 @@ class WhatsappAppbar extends SliverPersistentHeaderDelegate {
   double screenHeight;
   Tween<double>? profilePicTranslateTween;
 
+  final WidgetRef ref;
   WhatsappAppbar({
     required this.screenWidth,
     required this.screenHeight,
+    required this.ref,
 
   }) {
     profilePicTranslateTween =
@@ -77,7 +82,7 @@ class WhatsappAppbar extends SliverPersistentHeaderDelegate {
               Positioned(
                   top: 15,
                   left: 90,
-                  child: displayPhoneNumber(relativeScroll70px)),
+                  child: displayPhoneNumber(relativeScroll70px, ref)),
               Positioned(
                   top: 10,
                   right: profilePicTranslateTween!.transform(relativeScroll70px),
@@ -102,7 +107,7 @@ class WhatsappAppbar extends SliverPersistentHeaderDelegate {
     );
   }
 
-  Widget displayPhoneNumber(double relativeFullScrollOffset) {
+  Widget displayPhoneNumber(double relativeFullScrollOffset, WidgetRef ref) {
     if (relativeFullScrollOffset >= 0.8) {
       return Transform(
         transform: Matrix4.identity()
@@ -112,7 +117,7 @@ class WhatsappAppbar extends SliverPersistentHeaderDelegate {
                 .transform((relativeFullScrollOffset - 0.8) * 5),
           ),
         child: Text(
-          "+3 3333333333",
+          ref.watch(sessionProvider).authUser?.name??"User Name",
           style: TextStyle(
             fontSize: phoneNumberFontSizeTween
                 .transform((relativeFullScrollOffset - 0.8) * 5),
@@ -258,16 +263,16 @@ class ProfileIconButtons extends StatelessWidget {
   }
 }
 
-class PhoneAndName extends StatelessWidget {
+class PhoneAndName extends ConsumerWidget {
   const PhoneAndName({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return const Column(
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Column(
       children:  [
         SizedBox(height: 35),
         Text(
-          "+3 3333333333",
+          ref.watch(sessionProvider).authUser?.name??"User Name",
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
@@ -275,7 +280,7 @@ class PhoneAndName extends StatelessWidget {
         ),
         SizedBox(height: 10),
         Text(
-          "~Walter Hartwell White",
+          ref.watch(sessionProvider).authUser?.email??"example@gmail.com",
           style: TextStyle(
             fontSize: 16,
           ),

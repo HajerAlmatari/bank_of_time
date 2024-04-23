@@ -27,7 +27,7 @@ class RequestModel {
   factory RequestModel.fromMap(Map<String, dynamic> map) => RequestModel(
     id: map["id"],
     requester: User.fromMap(map["requester"]),
-    provider: User.fromMap(map["requester"]),
+    provider: User.fromMap(map["provider"]),
     skill: Skill.fromMap(map["skill"]),
     description: map["description"],
     createdAt: DateTime.parse(map["created_at"]),

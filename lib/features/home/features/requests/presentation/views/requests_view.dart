@@ -68,6 +68,8 @@ class RequestsView extends ConsumerWidget {
                       children: [
                         ...viewModel.requestsList.map(
                           (request) {
+
+                            bool showAccept = request.requester.id != ref.watch(sessionProvider).authUser?.id;
                             return Padding(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 12,
@@ -138,7 +140,7 @@ class RequestsView extends ConsumerWidget {
                                           ],
                                         ),
                                       ),
-                                      if (request.isPending)
+                                      if (request.isPending && showAccept)
                                         CustomButton(
                                           onTap: () async{
                                             final result = await showModalBottomSheet(

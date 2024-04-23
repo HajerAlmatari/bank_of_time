@@ -66,21 +66,24 @@ class _ConversationsViewState extends ConsumerState<ConversationsView> {
   }
 
   Widget _buildUsersListItem(QueryDocumentSnapshot<Object?> doc) {
+
     Map<String, dynamic> data = doc.data()! as Map<String, dynamic>;
 
-    if (ref.watch(sessionProvider).authUser!.email != data['email']) {
+
+    final String otherUserEmail = ref.watch(sessionProvider).authUser!.email == data['email1'] ? data['email2'] : data['email1'];
+    // if (currentUserEmail != data['email1']) {
       return Container(
         margin: const  EdgeInsets.symmetric(vertical: 5),
         child: Card(
           color: Theme.of(context).colorScheme.inversePrimary.withOpacity(0.2),
           child: ListTile(
-            title: Text(data['email']),
+            title: Text(otherUserEmail),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => ChatView(
-                    receiverUserEmail: data['email'],
+                    receiverUserEmail: otherUserEmail,
                     receiverUserID: data['receiverId'],
                   ),
                 ),
@@ -89,8 +92,8 @@ class _ConversationsViewState extends ConsumerState<ConversationsView> {
           ),
         ),
       );
-    } else {
-      return Container();
-    }
+    // } else {
+    //   return Container();
+    // }
   }
 }
