@@ -7,6 +7,9 @@ import 'package:bank_off_time/features/auth/presentation/views/register_view.dar
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../reset_view.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -63,7 +66,7 @@ class _LoginFormState extends State<LoginForm> {
                       : const Color(0xffA2A0A8),
                 ),
               ),
-              hintText: "User Name",
+              hintText: AppLocalizations.of(context)!.userName,
               textEditingController: textEditingControllers.userNameController,
               capitalization: TextCapitalization.none,
             ), //User Name
@@ -92,7 +95,7 @@ class _LoginFormState extends State<LoginForm> {
                         ? Theme.of(context).colorScheme.primary
                         : const Color(0xffA2A0A8),
                   )),
-              hintText: "Password",
+              hintText: AppLocalizations.of(context)!.password,
               obscure: visible == true ? false : true,
               textEditingController: textEditingControllers.passwordController,
               capitalization: TextCapitalization.none,
@@ -107,12 +110,18 @@ class _LoginFormState extends State<LoginForm> {
               highlightColor: Colors.transparent,
               hoverColor: Colors.transparent,
               splashColor: Colors.transparent,
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const ResetPasswordView(), // Create ResetPasswordView widget
+                  ),
+                );
+              },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    "Forgot your password?",
+                    AppLocalizations.of(context)!.forgotYourPassword,
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
@@ -144,9 +153,9 @@ class _LoginFormState extends State<LoginForm> {
                             ),
                           ),
                         )
-                      : const Text(
-                          "Login",
-                          style: TextStyle(color: Colors.white),
+                      :  Text(
+                    AppLocalizations.of(context)!.login,
+                    style: TextStyle(color: Colors.white),
                         ),
                 );
               },
@@ -164,13 +173,13 @@ class _LoginFormState extends State<LoginForm> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Don’t have account?",
+                    Text(AppLocalizations.of(context)!.doNotHaveAccount,
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium!
                             .copyWith(fontWeight: FontWeight.w600, fontSize: 16, color: const Color(0xff9CA3AF))),
                     Text(
-                      " Sign Up",
+                      AppLocalizations.of(context)!.signUp,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                           fontWeight: FontWeight.w600, fontSize: 16, color: Theme.of(context).colorScheme.primary),
                     ),

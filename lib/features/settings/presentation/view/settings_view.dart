@@ -1,6 +1,7 @@
 import 'package:bank_off_time/core/functions/slide_navigation.dart';
 import 'package:bank_off_time/core/widgets/custom_app_bar.dart';
 import 'package:bank_off_time/core/widgets/custom_button_with_icon.dart';
+import 'package:bank_off_time/features/settings/presentation/view/about_us_view.dart';
 import 'package:bank_off_time/features/settings/presentation/view/contact_us_view.dart';
 import 'package:bank_off_time/features/settings/presentation/view/display_view.dart';
 import 'package:bank_off_time/features/settings/presentation/view/language_modal.dart';
@@ -77,6 +78,15 @@ class SettingsView extends StatelessWidget {
                 title: "Contact Us",
                 onTap: () {
                   slideNavigator(context, const ContactUsView());
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomButtonWithIcon(
+                title: "About Us",
+                onTap: () {
+                  slideNavigator(context, const AboutUsView());
                 },
               ),
             ],

@@ -1,4 +1,114 @@
 {
+    "login" : "Login",
+    "@login" : {
+        "description" : "Login"
+    },
+    "hiWelcomeBack" : "Hi Welcome Back!",
+    "@hiWelcomeBack" : {
+        "description" : "Hi Welcome Back!"
+    },
+    "signInToYourAccount" : "Sign in to your account",
+    "@signInToYourAccount" : {
+        "description" : "Sign in to your account"
+    },
+    "userName" : "User Name",
+    "@userName" : {
+        "description" : "User Name"
+    },
+    "password" : "Password",
+    "@password" : {
+        "description" : "Password"
+    },
+    "forgotYourPassword" : "Forgot your password ?",
+    "@forgotYourPassword" : {
+        "description" : "Forgot your password ?"
+    },
+    "doNotHaveAccount" : "don't have account",
+    "@doNotHaveAccount" : {
+        "description" : "don't have account"
+    },
+    "signUp" : "Sign Up",
+    "@signUp" : {
+        "description" : "Sign Up"
+    },
+    "newToApp" : "New to App",
+    "@newToApp" : {
+        "description" : "New to App"
+    },
+    "createNewAccount" : "Create new account",
+    "@createNewAccount" : {
+        "description" : "Create new account"
+    },
+    "fullName" : "Full Name",
+    "@fullName" : {
+        "description" : "Full Name"
+    },
+    "confirmPassword" : "Confirm Password",
+    "@confirmPassword" : {
+        "description" : "Confirm Password"
+    },
+    "register" : "Register",
+    "@register" : {
+        "description" : "Register"
+    },
+    "backToLogin" : "Back to Login",
+    "@backToLogin" : {
+        "description" : "Back to Login"
+    },
+    "alreadyHaveAnAccount" : "Already have an account",
+    "@alreadyHaveAnAccount" : {
+        "description" : "Already have an account"
+    },
+    "privacyAndPolicy" : "Privacy and Policy",
+    "@privacyAndPolicy" : {
+        "description" : "Privacy and Policy"
+    },
+    "notifications" : "Notifications",
+    "@notifications" : {
+        "description" : "Notifications"
+    },
+    "accessibility" : "Accessibility",
+    "@accessibility" : {
+        "description" : "Accessibility"
+    },
+    "display" : "Display",
+    "@display" : {
+        "description" : "Display"
+    },
+
+    "contactUs" : "Contact Us",
+    "@contactUs" : {
+        "description" : "Contact Us"
+    },
+    "saudiArabia" : "Saudi Arabia",
+    "@saudiArabia" : {
+        "description" : "Saudi Arabia"
+    },
+    "riyadh" : "Riyadh",
+    "@riyadh" : {
+        "description" : "Riyadh"
+    },
+    "name" : "Name",
+    "@name" : {
+        "description" : "Name"
+    },
+    "email" : "Email",
+    "@email" : {
+        "description" : "Email"
+    },
+    "country" : "Country",
+    "@country" : {
+        "description" : "country"
+    },
+    "city" : "City",
+    "@city" : {
+        "description" : "City"
+    },
+    "birthDate" : "Birth Date",
+    "@birthDate" : {
+        "description" : "Birth Date"
+    },
+
     "math" : "Math",
     "chemistry" : "Chemistry",
     "biology" : "Biology",
@@ -111,5 +221,10 @@
     },
     "skills" : "Skills",
     "add" : "Add",
-    "add_new_skill" : "Add new skill"
+    "add_new_skill" : "Add new skill",
+    "reset_password" : "Reset Password",
+    "reset" : "Reset",
+    "hi" : "Hi Welcome Back!",
+    "about_us" : "About Us",
+    "about_us_content" : "Welcome to our Bank of Time App, where time becomes a valuable currency. We're here to help you exchange time, build connections, and create a community that values every moment. Join us in shaping a world where time is shared not spent"
 }
