@@ -1,15 +1,23 @@
+import 'package:bank_off_time/core/data/network/network_api_services.dart';
 import 'package:bank_off_time/core/helpers/network_connectivity.dart';
 import 'package:bank_off_time/core/providers/session_provider.dart';
 import 'package:bank_off_time/core/utils/cherry_toast_util.dart';
 import 'package:bank_off_time/features/auth/data/models/user_model.dart';
 import 'package:bank_off_time/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+final loginViewModel = ChangeNotifierProvider.autoDispose((ref) {
+  return  LoginViewModel(ref);
+});
+
+
 
 class LoginViewModel with ChangeNotifier {
-  final AuthRepository _myRepo;
+  final Ref ref;
+  final AuthRepository _myRepo = AuthRepository(NetworkApiServices());
 
-  LoginViewModel(this._myRepo);
+  LoginViewModel(this.ref);
 
 
 
@@ -49,7 +57,7 @@ class LoginViewModel with ChangeNotifier {
         _setIsLoading(false);
 
         if(user!=null){
-          Provider.of<SessionProvider>(context, listen: false).login(user, context);
+          ref.watch(sessionProvider).login(user, context);
         }
       } catch (e) {
         _setIsLoading(false);

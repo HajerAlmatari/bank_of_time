@@ -5,7 +5,7 @@ import 'package:bank_off_time/features/home/data/models/category.dart';
 import 'package:bank_off_time/features/profile/features/skills/data/repos/skills_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:provider/provider.dart' as p;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 final addSkillViewModel = ChangeNotifierProvider.autoDispose<AddSkillViewModel>((ref) {
@@ -52,8 +52,8 @@ class AddSkillViewModel with ChangeNotifier{
   CategoryModel? get selectedSkillCategory => _selectedSkillCategory;
    set selectedSkillCategory (CategoryModel? value){
      _selectedSkillCategory = value;
-     _selectedSkillItems.clear();
-     skillItems = List.from(value?.skills??[]);
+     selectedSkillItems.clear();
+     _skillItems = List.from(value?.skills??[]);
      notifyListeners();
    }
 
@@ -68,9 +68,9 @@ class AddSkillViewModel with ChangeNotifier{
   }
 
 
-  List<CategoryModel?> _selectedSkillItems = [];
-  List<CategoryModel?> get selectedSkillItems => _selectedSkillItems;
-  set selectedSkillItems (List<CategoryModel?> value){
+  List<CategoryModel> _selectedSkillItems = [];
+  List<CategoryModel> get selectedSkillItems => _selectedSkillItems;
+  set selectedSkillItems (List<CategoryModel> value){
     _selectedSkillItems = value;
     notifyListeners();
   }
@@ -93,21 +93,19 @@ class AddSkillViewModel with ChangeNotifier{
 
 
     final data = {
-      "person_id" : 1,
-      "skill_ids" : _selectedSkillItems.map((e) => e?.id).toList(),
+      "person_id" : ref.watch(sessionProvider).authUser?.id,
+      "skill_ids" : _selectedSkillItems.map((e) => e.id).toList(),
     };
 
-    print("data is ${data}");
     isBusy = true;
     final result = await _myRepo.addSkills(data);
 
     isBusy = false;
 
-    print("result is $result");
 
     if(result){
-      Navigator.pop(context);
-      ToastUtil.showSuccess("Added Success", context);
+      Navigator.pop(context, true);
+      ToastUtil.showSuccess(                AppLocalizations.of(context)!.added_successfully, context);
     }
 
   }

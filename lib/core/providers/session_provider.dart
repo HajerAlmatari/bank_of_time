@@ -3,10 +3,17 @@ import 'package:bank_off_time/features/auth/data/models/user_model.dart';
 import 'package:bank_off_time/features/auth/presentation/views/login_view.dart';
 import 'package:bank_off_time/features/main/presentation/view/main_view.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class SessionProvider with ChangeNotifier{
+final sessionProvider = ChangeNotifierProvider((ref) {
+  return SessionProviderr(ref);
+});
 
-  SessionProvider(){
+
+class SessionProviderr with ChangeNotifier{
+
+  final Ref ref;
+  SessionProviderr(this.ref){
     checkIsLoggedIn();
     _setAuthUserFromPref();
   }

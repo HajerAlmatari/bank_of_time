@@ -1,37 +1,54 @@
+import 'package:bank_off_time/core/data/network/network_api_services.dart';
+import 'package:bank_off_time/core/providers/session_provider.dart';
 import 'package:bank_off_time/features/auth/data/models/user_model.dart';
+import 'package:bank_off_time/features/profile/features/skills/data/repos/skills_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final sectionCategoryDetailsViewModel =
-ChangeNotifierProvider<SectionCategoryDetailsViewModel>((ref) {
-  return SectionCategoryDetailsViewModel(ref);
+ChangeNotifierProvider.autoDispose.family<SectionCategoryDetailsViewModel, int>((ref, skillId) {
+  return SectionCategoryDetailsViewModel(ref, skillId);
 });
 
 
 class SectionCategoryDetailsViewModel with ChangeNotifier{
 
-  final ChangeNotifierProviderRef ref;
+  final Ref ref;
+  final int skillId;
+  final SkillsRepo _skillsRepo = SkillsRepo(NetworkApiServices());
+  SectionCategoryDetailsViewModel(this.ref, this.skillId){
+    init();
+  }
 
-  SectionCategoryDetailsViewModel(this.ref);
+  Future init()async{
+    isLoading = true;
+    await getData();
+    isLoading = false;
+  }
 
-  final List<User> usersList = [
-    User(
-      id: 1,
-      name: "Hajer Mohammed",
-      email: "hajer.almatari@gmail.com",
-      username: "Hajer.M.A"
-    ),
-    User(
-        id: 2,
-        name: "Mohammed Alhaddad",
-        email: "moha@gmail.com",
-        username: "moha"
-    ),
-    User(
-        id: 3,
-        name: "Test Name",
-        email: "test.name@gmail.com",
-        username: "test"
-    ),
-  ];
+  Future getData()async{
+
+    final result = await _skillsRepo.allUsersOfSpecificSkill(skillId);
+
+    if(result != null){
+      result.removeWhere((element) => element.id == ref.watch(sessionProvider).authUser!.id);
+      userList = result;
+    }
+
+  }
+
+  List<User> _userList = [];
+  List<User> get userList => _userList;
+  set userList(List<User> list){
+    _userList  = list;
+    notifyListeners();
+  }
+
+
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
+  set isLoading(bool value){
+    _isLoading  = value;
+    notifyListeners();
+  }
 }

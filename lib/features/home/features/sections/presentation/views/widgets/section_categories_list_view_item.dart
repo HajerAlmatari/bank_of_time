@@ -28,7 +28,7 @@ class SectionCategoriesListViewItem extends ConsumerWidget {
               child: InkWell(
                 onTap: () {
                   // Handle the tap on the image if needed
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => SectionCategoryDetailsView(title: categoryModel.nameAr,)));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SectionCategoryDetailsView(title: ref.watch(mainProvider).isArabic ?  categoryModel.nameAr : categoryModel.nameEn, skillId: categoryModel.id,)));
                 },
                 child: Image.asset(
                   categoryModel.imgPath,

@@ -227,4 +227,17 @@
     "hi" : "Hi Welcome Back!",
     "about_us" : "About Us",
     "about_us_content" : "Welcome to our Bank of Time App, where time becomes a valuable currency. We're here to help you exchange time, build connections, and create a community that values every moment. Join us in shaping a world where time is shared not spent"
+    "no_data" : "No data",
+    "added_successfully" : "Added successfully",
+    "order_sent_successfully" : "Order sent successfully",
+    "accept" : "Accept",
+    "cancel" : "Cancel",
+    "are_you_sure_you_want_to_approve_this_request" : "Are you sure you want to approve this request?",
+    "date" : "Date",
+    "price" : "Price",
+    "send" : "Send",
+    "requests" : "Requests",
+    "skill" : "Skill",
+    "request_accepted_successfully" : "Request accepted successfully",
+    "user_name" : "User name"
 }

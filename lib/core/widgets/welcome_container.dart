@@ -1,15 +1,15 @@
 import 'package:bank_off_time/core/providers/session_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class WelcomeContainer extends StatelessWidget {
+class WelcomeContainer extends ConsumerWidget {
   final bool showBack;
 
   const WelcomeContainer({required this.showBack, Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Row(
       children: [
         showBack
@@ -38,7 +38,7 @@ class WelcomeContainer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              AppLocalizations.of(context)!.hello(Provider.of<SessionProvider>(context, listen: false).authUser?.name??""),
+              AppLocalizations.of(context)!.hello(ref.watch(sessionProvider).authUser?.name??""),
               style: const TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
             ),
             Text(

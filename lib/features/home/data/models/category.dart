@@ -1,4 +1,6 @@
-class CategoryModel {
+import 'package:equatable/equatable.dart';
+
+class CategoryModel with EquatableMixin{
   int id;
   String nameEn;
   String nameAr;
@@ -35,4 +37,7 @@ class CategoryModel {
     "skills": skills == null ? [] : List<dynamic>.from(skills!.map((x) => x.toMap())),
     "category": category,
   };
+
+  @override
+  List<Object?> get props => [id, nameEn, nameEn];
 }

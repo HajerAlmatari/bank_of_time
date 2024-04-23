@@ -7,7 +7,12 @@ class AppUrls{
 
 
   static const String categoriesUrl = "$_baseApi/categories/skills";
+  static const String sendOrder = "$_baseApi/orders/";
   static const String addSkillUrl = "$_baseApi/persons/add-skills/";
+  static String userWithSkills({required int userId}) => "$_baseApi/persons/$userId/skills";
+  static String acceptRequest({required int requestId}) => "$_baseApi/orders/$requestId/";
+  static String userRequests({required int userId}) => "$_baseApi/persons/$userId/orders";
+  static String allUsersOfSpecificSkill({required int skillId}) => "$_baseApi/persons/by-skill/$skillId";
 
 
 }

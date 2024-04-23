@@ -10,13 +10,13 @@ import 'package:bank_off_time/features/profile/presentation/view/status_view.dar
 import 'package:bank_off_time/core/widgets/custom_button_with_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class ProfileView extends StatelessWidget {
+class ProfileView extends ConsumerWidget {
   const ProfileView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -79,7 +79,7 @@ class ProfileView extends StatelessWidget {
                   ),
                   backgroundColor: Colors.red,
                   onTap: () {
-                    Provider.of<SessionProvider>(context,  listen: false).logout(context);
+                    ref.watch(sessionProvider).logout(context);
                     // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const LoginView()), (route) => false);
                   },
                 ),
