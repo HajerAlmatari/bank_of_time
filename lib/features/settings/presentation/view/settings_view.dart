@@ -6,6 +6,7 @@ import 'package:bank_off_time/features/settings/presentation/view/contact_us_vie
 import 'package:bank_off_time/features/settings/presentation/view/display_view.dart';
 import 'package:bank_off_time/features/settings/presentation/view/language_modal.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({Key? key}) : super(key: key);
@@ -24,28 +25,28 @@ class SettingsView extends StatelessWidget {
                 height: 30,
               ),
               CustomButtonWithIcon(
-                title: "Privacy and Policy",
+                title: AppLocalizations.of(context)!.privacyAndPolicy,
                 onTap: () {},
               ),
               const SizedBox(
                 height: 10,
               ),
               CustomButtonWithIcon(
-                title: "Notification",
+                title: AppLocalizations.of(context)!.notifications,
                 onTap: () {},
               ),
               const SizedBox(
                 height: 10,
               ),
               CustomButtonWithIcon(
-                title: "Accessibility",
+                title: AppLocalizations.of(context)!.accessibility,
                 onTap: () {},
               ),
               const SizedBox(
                 height: 10,
               ),
               CustomButtonWithIcon(
-                title: "Display",
+                title: AppLocalizations.of(context)!.display,
                 onTap: () {
                   slideNavigator(context, DisplayView());
                 },
@@ -54,7 +55,7 @@ class SettingsView extends StatelessWidget {
                 height: 10,
               ),
               CustomButtonWithIcon(
-                title: "Language",
+                title: AppLocalizations.of(context)!.language,
                 onTap: () {
                   // slideNavigator(context, const LanguageView());
                   showModalBottomSheet(
@@ -75,7 +76,7 @@ class SettingsView extends StatelessWidget {
                 height: 10,
               ),
               CustomButtonWithIcon(
-                title: "Contact Us",
+                title: AppLocalizations.of(context)!.contactUs,
                 onTap: () {
                   slideNavigator(context, const ContactUsView());
                 },
@@ -84,7 +85,7 @@ class SettingsView extends StatelessWidget {
                 height: 10,
               ),
               CustomButtonWithIcon(
-                title: "About Us",
+                title: AppLocalizations.of(context)!.about_us,
                 onTap: () {
                   slideNavigator(context, const AboutUsView());
                 },

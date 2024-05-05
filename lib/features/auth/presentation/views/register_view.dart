@@ -1,5 +1,6 @@
 import 'package:bank_off_time/features/auth/presentation/views/widgets/register_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class RegisterView extends StatelessWidget {
@@ -32,7 +33,7 @@ class RegisterView extends StatelessWidget {
                   height: 38,
                 ),
                 Text(
-                  "New To App",
+                  AppLocalizations.of(context)!.newToApp,
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         fontWeight: FontWeight.w700,
                         fontSize: 24,
@@ -42,7 +43,7 @@ class RegisterView extends StatelessWidget {
                   height: 4,
                 ),
                 Text(
-                  "Create new account",
+                  AppLocalizations.of(context)!.createNewAccount,
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         fontWeight: FontWeight.w500,
                         fontSize: 16,

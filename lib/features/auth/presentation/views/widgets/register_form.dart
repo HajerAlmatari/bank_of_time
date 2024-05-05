@@ -4,6 +4,7 @@ import 'package:bank_off_time/core/widgets/custom_text_form_field.dart';
 import 'package:bank_off_time/features/auth/presentation/view_models/register_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RegisterForm extends ConsumerStatefulWidget {
   const RegisterForm({Key? key}) : super(key: key);
@@ -62,7 +63,7 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  hintText: "Email",
+                  hintText: AppLocalizations.of(context)!.email,
                   // inputType: TextIn/putType.emailAddress,
                   inputController: textEditingControllers.emailController,
                   // capitalization: TextCapitalization.none,
@@ -79,7 +80,7 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  hintText: "Full Name",
+                  hintText: AppLocalizations.of(context)!.fullName,
                   // inputType: TextIn/putType.emailAddress,
                   inputController: textEditingControllers.fullNameController,
                   isLast: false,
@@ -93,7 +94,7 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  hintText: "User Name",
+                  hintText: AppLocalizations.of(context)!.userName,
                   // inputType: TextIn/putType.emailAddress,
                   inputController: textEditingControllers.userNameController,
                 ),
@@ -121,7 +122,7 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
                     ),
                   ),
                   validatorType: ValidatorType.password,
-                  hintText: "Password",
+                  hintText: AppLocalizations.of(context)!.password,
                   obsecurePassword: visible == true ? false : true,
                   inputController: textEditingControllers.passwordController,
                   // capitalization: TextCapitalization.none,
@@ -154,7 +155,7 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  hintText: "Confirm Password",
+                  hintText: AppLocalizations.of(context)!.confirmPassword,
                   obsecurePassword: visible == true ? false : true,
                   inputController: textEditingControllers.confirmPasswordController,
                   // capitalization: TextCapitalization.none,
@@ -177,8 +178,8 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
                       ),
                     ),
                   )
-                      : const Text(
-                    "Register",
+                      :  Text(
+                    AppLocalizations.of(context)!.register,
                     style: TextStyle(color: Colors.white),
                   ),
                   onTap: () {
@@ -206,13 +207,13 @@ class _RegisterFormState extends ConsumerState<RegisterForm> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Already have an account!",
+                        Text(AppLocalizations.of(context)!.alreadyHaveAnAccount,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!
                                 .copyWith(fontWeight: FontWeight.w600, fontSize: 16, color: const Color(0xff9CA3AF))),
                         Text(
-                          " Back to Login",
+                          AppLocalizations.of(context)!.backToLogin,
                           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                               fontWeight: FontWeight.w600,
                               fontSize: 16,

@@ -7,6 +7,8 @@ import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../reset_view.dart';
+
 
 class LoginForm extends ConsumerStatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -107,7 +109,10 @@ class _LoginFormState extends ConsumerState<LoginForm> {
             highlightColor: Colors.transparent,
             hoverColor: Colors.transparent,
             splashColor: Colors.transparent,
-            onTap: () {},
+            onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ResetPasswordView()));
+
+            },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -142,7 +147,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 ),
               ),
             )
-                : const Text(
+                :  Text(
               AppLocalizations.of(context)!.login,
               style: TextStyle(color: Colors.white),
             ),

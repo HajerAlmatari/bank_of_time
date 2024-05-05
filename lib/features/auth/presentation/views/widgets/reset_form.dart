@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:bank_off_time/core/widgets/custom_button.dart';
 import 'package:bank_off_time/core/widgets/custom_textformfield.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ResetPasswordForm extends StatefulWidget {
@@ -36,12 +35,11 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
                 color: Theme.of(context).colorScheme.primary,
               ),
             ),
-            hintText: "Email",
+            hintText: AppLocalizations.of(context)!.email,
             textEditingController: textEditingControllers,
             capitalization: TextCapitalization.none,
-
           ), // Email
-          SizedBox(height: 32),
+          const SizedBox(height: 32),
           CustomButton(
             onTap: () {
               if (_formKey.currentState!.validate()) {
