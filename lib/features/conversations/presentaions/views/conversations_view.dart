@@ -17,30 +17,32 @@ class ConversationsView extends ConsumerStatefulWidget {
 class _ConversationsViewState extends ConsumerState<ConversationsView> {
   @override
   Widget build(BuildContext context) {
-
     final viewModel = ref.watch(conversationsViewModel);
 
-
-
-    return  Scaffold(
+    return Scaffold(
         body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: CustomScrollView(
-              slivers: [
-                const SliverToBoxAdapter(child: CustomAppBar()),
-                const SliverToBoxAdapter(child: SizedBox(height: 10,)),
-                _buildUsersList()
-              ],
-            ),
-          ),
-        )
-    );
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        child: CustomScrollView(
+          slivers: [
+            const SliverToBoxAdapter(child: CustomAppBar()),
+            const SliverToBoxAdapter(
+                child: SizedBox(
+              height: 10,
+            )),
+            _buildUsersList()
+          ],
+        ),
+      ),
+    ));
   }
 
   Widget _buildUsersList() {
     return StreamBuilder<QuerySnapshot>(
-      stream: FirebaseFirestore.instance.collection('chat_rooms').snapshots(),
+      stream: FirebaseFirestore.instance
+          .collection('chat_rooms')
+          .where("users", arrayContains: ref.watch(sessionProvider).authUser!.id.toString())
+          .snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return SliverToBoxAdapter(child: const Text("Error"));
@@ -52,8 +54,7 @@ class _ConversationsViewState extends ConsumerState<ConversationsView> {
 
         final conversations = snapshot.data!.docs;
 
-        return  SliverList(
-
+        return SliverList(
           delegate: SliverChildBuilderDelegate(
             childCount: conversations.length,
             (context, index) {
@@ -66,32 +67,31 @@ class _ConversationsViewState extends ConsumerState<ConversationsView> {
   }
 
   Widget _buildUsersListItem(QueryDocumentSnapshot<Object?> doc) {
-
     Map<String, dynamic> data = doc.data()! as Map<String, dynamic>;
 
-
-    final String otherUserEmail = ref.watch(sessionProvider).authUser!.email == data['email1'] ? data['email2'] : data['email1'];
+    final String otherUserEmail =
+        ref.watch(sessionProvider).authUser!.email == data['email1'] ? data['email2'] : data['email1'];
     // if (currentUserEmail != data['email1']) {
-      return Container(
-        margin: const  EdgeInsets.symmetric(vertical: 5),
-        child: Card(
-          color: Theme.of(context).colorScheme.inversePrimary.withOpacity(0.2),
-          child: ListTile(
-            title: Text(otherUserEmail),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ChatView(
-                    receiverUserEmail: otherUserEmail,
-                    receiverUserID: data['receiverId'],
-                  ),
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 5),
+      child: Card(
+        color: Theme.of(context).colorScheme.inversePrimary.withOpacity(0.2),
+        child: ListTile(
+          title: Text(otherUserEmail),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ChatView(
+                  receiverUserEmail: otherUserEmail,
+                  receiverUserID: data['receiverId'],
                 ),
-              );
-            },
-          ),
+              ),
+            );
+          },
         ),
-      );
+      ),
+    );
     // } else {
     //   return Container();
     // }

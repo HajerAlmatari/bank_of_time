@@ -38,7 +38,11 @@ class ChatService extends ChangeNotifier {
     await _firestore
         .collection('chat_rooms')
         .doc(chatRoomId)
-        .set({'email1' : receiverEmail,'email2' : currentUserEmail, 'receiverId' : receiverId});
+        .set({'email1' : receiverEmail,'email2' : currentUserEmail,
+      'receiverId' : receiverId,
+      'users' : [currentUserId, receiverId],
+
+    });
 
 
     // await _firestore
