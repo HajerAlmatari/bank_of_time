@@ -1,3 +1,5 @@
+import 'package:bank_off_time/core/providers/session_provider.dart';
+import 'package:bank_off_time/core/utils/cherry_toast_util.dart';
 import 'package:bank_off_time/features/home/features/order/data/models/order_model.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -10,9 +12,10 @@ import '../view_models/order_view_model.dart';
 class OrderView extends ConsumerStatefulWidget {
   final int providerId;
   final int requesterId;
+  final double providerBalance;
   final int skillId;
 
-  const OrderView({required this.requesterId, required this.skillId, required this.providerId, super.key});
+  const OrderView({required this.providerBalance , required this.requesterId, required this.skillId, required this.providerId, super.key});
 
   @override
   ConsumerState<OrderView> createState() => _OrderViewState();
@@ -35,6 +38,8 @@ class _OrderViewState extends ConsumerState<OrderView> {
 
   @override
   Widget build(BuildContext context) {
+
+    print("providerBalance  ${widget.providerBalance}");
     final viewModel = ref.watch(orderViewModel(orderModel));
     return Container(
       decoration: BoxDecoration(color: Colors.transparent, borderRadius: BorderRadius.circular(20)),
@@ -89,6 +94,13 @@ class _OrderViewState extends ConsumerState<OrderView> {
                     ),
               onTap: () {
                 if (viewModel.formKey.currentState!.validate()) {
+
+                  if(double.parse(viewModel.textEditingControllers.priceController.text) > double.parse(ref.watch(sessionProvider).authUser?.balance.toString() ?? "0.0")) {
+                    ToastUtil.showError(
+                    AppLocalizations.of(context)!.insufficient_balance
+                    , context);
+                    return;
+                  }
                   viewModel.sendOrder(context);
                 }
               },

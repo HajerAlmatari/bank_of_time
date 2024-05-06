@@ -1,4 +1,5 @@
 import 'package:bank_off_time/core/providers/session_provider.dart';
+import 'package:bank_off_time/core/utils/cherry_toast_util.dart';
 import 'package:bank_off_time/core/utils/extensions/string_ex.dart';
 import 'package:bank_off_time/features/auth/data/models/user_model.dart';
 import 'package:bank_off_time/features/conversations/features/chat/presentations/view/chat_view.dart';
@@ -22,6 +23,7 @@ class UserItemCard extends ConsumerWidget {
           builder: (context) => OrderView(
             providerId: user.id,
             skillId: skillId,
+            providerBalance: user.balance ?? 0.0,
             requesterId: ref.watch(sessionProvider).authUser!.id,
           ),
         );

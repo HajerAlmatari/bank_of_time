@@ -45,7 +45,7 @@ class AccountInfoContainer extends ConsumerWidget {
                       SizedBox(height: 7,),
                       DefaultTextStyle(
                         style: TextStyle(color: Colors.indigo,fontSize: 17,),
-                        child: Text("149.9 h",),
+                        child: Text("${ref.watch(sessionProvider).authUser?.balance} h",),
                       ),
                     ],
                   ),

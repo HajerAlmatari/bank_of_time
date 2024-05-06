@@ -52,7 +52,7 @@ class WelcomeContainer extends ConsumerWidget {
                   style: const TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  AppLocalizations.of(context)!.h,
+                  "${ref.watch(sessionProvider).authUser?.balance??0.0} h",
                   style: const TextStyle(
                       fontSize: 9,
                       fontWeight: FontWeight.w900,

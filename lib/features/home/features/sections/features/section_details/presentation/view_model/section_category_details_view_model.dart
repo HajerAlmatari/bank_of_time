@@ -31,7 +31,7 @@ class SectionCategoryDetailsViewModel with ChangeNotifier{
     final result = await _skillsRepo.allUsersOfSpecificSkill(skillId);
 
     if(result != null){
-      result.removeWhere((element) => element.id == ref.watch(sessionProvider).authUser!.id);
+      result.removeWhere((element) => element.id == ref.watch(sessionProvider).authUser?.id);
       userList = result;
     }
 

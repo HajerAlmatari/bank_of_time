@@ -98,5 +98,6 @@
   "overview_text" : "نحن في بنك الوقت نسعى للوصول ومد يد العون لكل من يحتاج المساعدة",
   "volunteer" : "متطوع",
   "seek_help" : "مستفيد",
-  "online_service" : "عن بعد"
+  "online_service" : "عن بعد",
+  "insufficient_balance" : "ليس لديك رصيد كافي"
 }

@@ -154,7 +154,7 @@
     "@youAreOffline" : {
         "description" : "you are currently offline"
     },
-    "yourTimeBalanceIs" : "Your time balance is 149.969 h",
+    "yourTimeBalanceIs" : "Your time balance is ",
     "@yourTimeBalanceIs" : {
         "description" : "Your time balance is"
     },
@@ -243,5 +243,6 @@
     "overview_text" : "We at Bot seek to reach out and lend helping hand to those who most need it",
     "volunteer" : "Volunteer",
     "seek_help" : "Seek Help",
-    "online_service" : "online"
+    "online_service" : "online",
+    "insufficient_balance" : "Insufficient balance"
 }

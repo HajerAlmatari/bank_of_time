@@ -13,6 +13,9 @@ class User {
   String username;
   String? password;
   List<Skill>? skills;
+  int? type;
+  dynamic balance;
+  int? status;
 
   User({
     required this.id,
@@ -21,6 +24,9 @@ class User {
     required this.username,
     this.password,
     this.skills,
+    this.balance,
+    this.type,
+    this.status,
   });
 
   factory User.fromMap(Map<String, dynamic> map) {
@@ -36,6 +42,9 @@ class User {
       email: map["email"],
       username: map["username"],
       password: map["password"],
+      balance: map["balance"],
+      status: map["status"],
+      type: map["type"],
       skills: userSkills,
     );
   }
