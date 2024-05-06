@@ -63,7 +63,7 @@ class RegisterViewModel with ChangeNotifier {
         _setIsLoading(false);
 
         if (user != null) {
-          ref.watch(sessionProvider).login(user, context);
+          ref.watch(sessionProvider).login(user, context, true);
         }
       } catch (e) {
         _setIsLoading(false);

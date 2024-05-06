@@ -239,5 +239,9 @@
     "requests" : "Requests",
     "skill" : "Skill",
     "request_accepted_successfully" : "Request accepted successfully",
-    "user_name" : "User name"
+    "user_name" : "User name",
+    "overview_text" : "We at Bot seek to reach out and lend helping hand to those who most need it",
+    "volunteer" : "Volunteer",
+    "seek_help" : "Seek Help",
+    "online_service" : "online"
 }
