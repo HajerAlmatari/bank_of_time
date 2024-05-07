@@ -99,5 +99,6 @@
   "volunteer" : "متطوع",
   "seek_help" : "مستفيد",
   "online_service" : "عن بعد",
-  "insufficient_balance" : "ليس لديك رصيد كافي"
+  "insufficient_balance" : "ليس لديك رصيد كافي",
+  "updated_successfully" : "تم التحديث بنجاح"
 }

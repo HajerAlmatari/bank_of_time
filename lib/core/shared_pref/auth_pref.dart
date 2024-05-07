@@ -19,7 +19,7 @@ class AuthPref {
     pref.setString(_nameKey, userModel.name);
     pref.setString(_emailKey, userModel.email);
     pref.setString(_userNameKey, userModel.username);
-    pref.setDouble(_userBalanceKey, userModel.balance??0.0);
+    pref.setDouble(_userBalanceKey, double.parse("${userModel.balance}")??0.0);
     pref.setInt(_userStatusKey, userModel.status ?? 0);
     pref.setInt(_userTypeKey, userModel.type ?? 0);
   }

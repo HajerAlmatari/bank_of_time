@@ -49,12 +49,26 @@ class User {
     );
   }
 
-  Map<String, dynamic> toMap() => {
-    "id": id,
-    "name": name,
-    "email": email,
-    "username": username,
-    "password": password,
-    "skills": List<dynamic>.from(skills?.map((x) => x.toMap())??[]),
-  };
+  Map<String, dynamic> toMap([bool toUpdate = false]) {
+
+    if(toUpdate){
+      return {
+        "name": name,
+        "email": email,
+        "username": username,
+        "balance": balance,
+        "status": status,
+        "type": type,
+      };
+    }
+
+    return {
+      "id": id,
+      "name": name,
+      "email": email,
+      "username": username,
+      "password": password,
+      "skills": List<dynamic>.from(skills?.map((x) => x.toMap())??[]),
+    };
+  }
 }

@@ -1,20 +1,17 @@
 import 'package:bank_off_time/core/widgets/custom_app_bar.dart';
+import 'package:bank_off_time/features/profile/presentation/status_view_model.dart';
 import 'package:bank_off_time/features/profile/presentation/view/widgets/status_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class StatusView extends StatefulWidget {
+class StatusView extends ConsumerWidget {
   const StatusView({Key? key}) : super(key: key);
 
   @override
-  State<StatusView> createState() => _StatusViewState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
 
-class _StatusViewState extends State<StatusView> {
-  bool? onlineValue = false;
-  bool? availableValue = false;
-  @override
-  Widget build(BuildContext context) {
+    final viewmodel = ref.watch(statusViewModel);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -36,26 +33,11 @@ class _StatusViewState extends State<StatusView> {
                 height: 20,
               ),
               StatusCard(
-                value: onlineValue!,
-                bottomBorder: true,
-                title: AppLocalizations.of(context)!.online,
-                onChange: (value){
-                  setState(() {
-                    onlineValue = value;
-                  });
-                },
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              StatusCard(
-                value: availableValue!,
+                value: viewmodel.status,
                 bottomBorder: false,
                 title: AppLocalizations.of(context)!.available,
                 onChange: (value){
-                  setState(() {
-                    availableValue = value;
-                  });
+                  viewmodel.setStatus(context, value??false);
                 },
               ),
             ],

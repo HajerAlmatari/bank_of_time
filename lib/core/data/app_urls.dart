@@ -4,6 +4,7 @@ class AppUrls{
 
   static const String loginUrl = "$_baseApi/auth/login";
   static const String registerUrl = "$_baseApi/auth/register";
+  static String updateUrl({required userId}) => "$_baseApi/persons/$userId/";
 
 
   static const String categoriesUrl = "$_baseApi/categories/skills";

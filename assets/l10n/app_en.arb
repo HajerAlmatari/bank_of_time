@@ -244,5 +244,6 @@
     "volunteer" : "Volunteer",
     "seek_help" : "Seek Help",
     "online_service" : "online",
-    "insufficient_balance" : "Insufficient balance"
+    "insufficient_balance" : "Insufficient balance",
+    "updated_successfully" : "Updated successfully"
 }

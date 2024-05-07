@@ -44,6 +44,13 @@ class SessionProviderr with ChangeNotifier{
   }
 
 
+  void updateAuthUser(User user)async{
+    AuthPref.saveAuthUser(user);
+    authUser = user;
+    notifyListeners();
+  }
+
+
 
   void login(User user, BuildContext context, [bool isRegister = false])async{
 
